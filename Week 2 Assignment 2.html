@@ -1,0 +1,182 @@
+<!--Week 2, Assignment 2: RESPONSIVE TABLE-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Table</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    .header {
+      font-family: fantasy;
+      font-weight: bold;
+      font-size: 28px;
+      text-align: center;
+      color: rgb(9, 110, 102);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.671);
+    }
+    .caption {
+      font-family: fantasy;
+      font-weight: bold;
+      font-size: 18px;
+        text-align: center;
+        width: 75%;
+        margin: 0 auto;
+        padding: 0px;
+        border: 3px solid rgb(9, 110, 102);
+        border-radius: 2px;
+        color: maroon;
+    }
+    .border {
+      border: 3px solid rgb(9, 110, 102);
+      border-radius: 5px;
+      width: 75%;
+      align-items: center;
+      margin: 0 auto;
+      padding: 0px;
+    }
+    .div.wrapper {
+      overflow:hidden;
+      overflow-y: scroll;
+      height: 100px; /* change this to desired height */
+    }
+    @media (max-width: 600px) {
+      table {
+        width: 100%;
+      }
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid #ccc;
+      }
+      td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+      }
+      td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+      }
+      td:nth-of-type(1):before { content: "People Dining"; }
+      td:nth-of-type(2):before { content: "Entres"; }
+      td:nth-of-type(3):before { content: "Sides"; }
+      td:nth-of-type(4):before { content: "Desserts"; }
+    }
+  </style>
+</head>
+
+    <body>
+        <h1 class="header">Responsive Table</h1>
+        <div class="div.wrapper">
+            <table class="border" border="1">
+                <caption class="caption">Dinner Table</caption>
+                <thead>
+                    <tr style="background-color: rgba(56, 113, 3, 0.582); color: black; text-align: center;">
+                        <th>People Dining <button onclick="sortTable(0)">Sort</button></th>
+                        <th>Entres <button onclick="sortTable(1)">Sort</button></th>
+                        <th>Sides <button onclick="sortTable(2)">Sort</button></th>
+                        <th>Desserts <button onclick="sortTable(3)">Sort</button></th>
+                    </tr>
+                </thead>
+              <tbody style="text-align: center; border: 1px maroon;">
+                <tr>
+                  <td style="font-family: cursive; font-weight: bold; color: rgb(9, 110, 102);">Mombo</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td style="font-family: cursive; font-weight: bold; color: rgb(9, 110, 102)">Keither</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td style="font-family: cursive; font-weight: bold; color: rgb(9, 110, 102);">Gabrielo</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td style="font-family: cursive; font-weight: bold; color: rgb(9, 110, 102);">Gabrielo's Future Wife</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td style="font-family: cursive; font-weight: bold; color: rgb(9, 110, 102);">Danielo</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td style="font-family: cursive; font-weight: bold; color: rgb(9, 110, 102);">Danielo's Future Wife</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td style="font-family: cursive; font-weight: bold; color: rgb(9, 110, 102);">Kids</td>
+                  <td>8</td>
+                  <td>16</td>
+                  <td>4</td>
+                </tr>
+              </tbody>
+              <tfoot style="text-align: center;">
+                <tr>
+                  <td style="font-weight: bold;">Total</td>
+                  <td style="font-weight: bold;">17</td>
+                  <td style="font-weight: bold;">32</td>
+                  <td style="font-weight: bold;">9</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        <script>
+          function sortTable(columnIndex) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.querySelector("table");
+            switching = true;
+            while (switching) {
+              switching = false;
+              rows = table.rows;
+              for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[columnIndex];
+                y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                  shouldSwitch = true;
+                  break;
+                }
+              }
+              if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+              }
+            }
+          }
+        </script>
+</body>
+</html>
+
+<!--
+  1. Create an HTML table using the <table>, <tr>, <th>, and <td> tags.
+  2. Populate the table with sample data, such as a product catalog with columns for product name, price, category, and stock status.
+  3. Add a table header using the <thead> tag and a footer using the <tfoot> tag.
+  4. Style the table using CSS, including properties like border, padding, text-align, and more.
+  5. Implement a responsive design using media queries so that the table adjusts nicely to different screen sizes. Consider reformatting the table or using a scrollable container on small screens.
+  6. BONUS: add sort buttons to table content
+-->
+
+<!--FINISHED, but need to figure out how the JavaScript sortTable function script works-->

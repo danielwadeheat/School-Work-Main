@@ -1,0 +1,77 @@
+<!--Week 3 Assignment 2: MULTIMEDIA PAGE-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multimedia Page</title>
+    <meta Content=”width=device-width, initial-scale=1” />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #287a41;
+            margin: 0;
+            padding: 0;
+        }
+        @media (min-width: 600px) {
+            h1 {
+                font-size: 2em;
+                text-align: center;
+                font-family: Snap ITC;
+            }
+            h2 {
+                font-size: 1.5em;
+                text-align: center;
+                font-family: Comic Sans MS;
+            }
+        }
+        video, audio {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+            border: 2px solid #c2ecb1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(8, 116, 44, 0.527);
+        }
+        video {
+            background-color: rgba(8, 116, 44, 0.527);
+        }
+        audio {
+            background-color: #c2ecb1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Here is a Title for this Multimedia Page</h1>
+    <br>
+    <h2>Video Section</h2>
+    <video width="640" height="360" poster="C:\Users\Daniel Wade Heat\OneDrive - francistuttle.edu\Pictures\sharks-human-teeth.jpg" preload="metadata" controls>
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.ogg" type="video/ogg">
+        <source src="video.webm" type="video/webm">
+        <track kind="subtitles" src="subtitles_en.vtt" srclang="en" label="English">
+        <track kind="captions" src="captions_en.vtt" srclang="en" label="English">
+        Your browser does not support the video tag.
+    </video>
+    <br><br>
+    <h2>Audio Section</h2>
+    <audio preload="auto">
+        <source src="audio.mp3" type="audio/mpeg">
+        <source src="audio.ogg" type="audio/ogg">
+        <source src="audio.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
+
+
+<!--
+    1. Create a webpage that includes a video using the <video> tag. Include controls for play, pause, and volume.
+    2. Add an audio file to the page using the <audio> tag, also with controls.
+    3. Provide alternative formats for both the video and audio files to ensure compatibility with different browsers.
+    4. Include captions and subtitles for the video using the <track> tag.
+    5. BONUS: Style the video and audio elements using CSS, and experiment with custom controls using JavaScript.
+-->
+
+<!--FINISHED (except JavaScript custom controls)-->

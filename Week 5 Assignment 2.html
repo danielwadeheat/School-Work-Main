@@ -1,0 +1,109 @@
+<!--Week 5 Assignment 2: RESPONSIVE MULTI-COLUMN LAYOUT WEBPAGE-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Multi-Column Layout Webpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Joker, Jokerman, sans-serif;
+            margin: 4;
+            padding: 1;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        aside {
+            float: right;
+            width: 20%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            color: cadetblue;
+            border: 1px solid #777;
+            margin: 5vw
+            overflow: hidden;
+            text-align: center;
+        }
+        main {
+            float: left;
+            width: 70%;
+            padding: 5px;
+        }
+        section {
+            margin-bottom: 20px;
+            align-content: center;
+            align-items: center;
+        }
+        section, h2, p {
+            margin: 10px;
+            text-align: center;
+        }
+        iframe {
+            display: block;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            clear: both;
+        }
+        @media (max-width: 767px) {
+            sidebar, main {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Responsive Multi-Column Layout Webpage</h1>
+    </header>
+    <aside>
+        <ol>
+            <li><a href="#silly-dogs">Funny Dogs</a></li><br>
+            <li><a href="#silly-cats">Funny Cats</a></li><br>
+            <li><a href="#silly-monkeys">Funny Monkeys</a></li><br>
+            <li><a href="#silly-ostriches">Funny Ostriches</a></li>
+        </ol>
+    </aside>
+
+    <main>
+        <section>
+            <h2 id="silly-dogs">Funny Dogs</h2>
+            <p>Watch these funny dogs do silly things!</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BR4uri728Yo?si=dyYSX8fLvgWl8bwv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <br>
+            <h2 id="silly-cats">Funny Cats</h2>
+            <p>Watch these funny cats do silly things!</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/RFMuw3xpmFE?si=tuRFyfCWIcn-ic0n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <br>
+            <h2 id="silly-monkeys">Funny Monkeys</h2>
+            <p>Watch these funny monkeys do silly things!</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Yk1uCWWUl-4?si=IwKjqz6TrgaCzzFt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <br>
+            <h2 id="silly-ostriches">Funny Ostriches</h2>
+            <p>Watch these funny ostriches do silly things!</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/O4pC5gHCFAM?si=OfpDQaYpWuKmbOac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <small>&copy; 2025, Daniel's Funny Animals Responsive Multi-Column Layout Webpage Project</small>
+    </footer>
+</body>
+</html>
+
+<!--
+1. Design a webpage that includes a header, footer, main content area, and a sidebar.
+2. Use CSS to position the elements, creating a multi-column layout.
+3. Explore different ways to achieve the layout, such as using float or flexbox.
+Bonus: Make the layout responsive to different screen sizes using media queries.
+-->
+
+<!--FINISHED-->

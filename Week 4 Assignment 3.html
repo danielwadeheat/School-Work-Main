@@ -1,0 +1,136 @@
+<!--Week 4 Assignment 3: BUILDING A RESUME USING SEMANTIC HTML-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume With Semantic HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale: 1.0">
+    <style>
+        :root {
+            --primary-color: teal;
+            --secondary-color: maroon;
+        }
+        body {
+            width: 85vw;
+            max-width: 100%;
+            height: auto;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            font-family: Comic Sans MS, cursive, sans-serif;
+            margin: auto;
+            padding: 20px;
+        }
+        header, section, footer {
+            margin-bottom: 20px;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        .personal-info, .skills, .experience, .education, .references {
+            border: 1px solid var(--secondary-color);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .personal-info address {
+            font-style: normal;
+        }
+        @media print {
+            body {
+                width: 100%;
+                background: white;
+                color: black;
+                font-family: Arial, sans-serif;
+            }
+            header, section, footer {
+                margin-bottom: 10px;
+                border: none;
+            }
+            .personal-info, .skills, .experience, .education, .references {
+                border: none;
+                padding: 0;
+            }
+            h1, h2, h3 {
+                text-align: left;
+            }
+            address {
+                font-style: normal;
+            }
+            footer {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vampire Zombie Ostrich</h1>
+        <address>
+            123 Big Bird St, Zombieland, OK USA<br>
+            Email: vampire.zombie.bigbird@aol.com<br>
+            Phone: (123) 456-7890
+        </address>
+    </header>
+
+    <section class="personal-info">
+        <h2>Personal Information</h2>
+        <p>Zombie Ostrich is a dedicated professional with a passion for web development and a strong background in software engineering, with an attained Street Smarts degree at Sesame Street University.  I'm always hungry, because I am both vampire and zombie.  I feed off of the ABC's; when anyone sings them or I see them in books or electronics devices, I grow more powerful.  However, I can eat anything with sesame seeds or cooked with sesame oil; I do not drink blood, because I am a refined vampire-zombie-ostrich.  Singing the ABC's gives me flying power.</p>
+    </section>
+
+    <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Making any food good with sesame seeds</li>
+            <li>Flying; yes I'm a flying ostrich, because of zombie powers</li>
+            <li>Staying alive even after death</li>
+            <li>Being a bigger bird than other birds</li>
+        </ul>
+    </section>
+
+    <section class="experience">
+        <h2>Experience</h2>
+        <article>
+            <h3>Web Developer at Tech Company</h3>
+            <time datetime="2020-01">January 2020</time> - <time datetime="2023-12">December 2023</time>
+            <p>Developed and maintained web applications using modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality products.</p>
+        </article>
+        <article>
+            <h3>Software Engineer at Another Tech Company</h3>
+            <time datetime="2017-06">June 2017</time> - <time datetime="2019-12">December 2019</time>
+            <p>Worked on backend services and APIs using Node.js and Python. Improved system performance and scalability.</p>
+        </article>
+    </section>
+
+    <section class="education">
+        <h2>Education</h2>
+        <article>
+            <h3>Bachelor of Science in Street Smarts</h3>
+            <time datetime="2013-09">September 2013</time> - <time datetime="2017-05">May 2017</time>
+            <p>University of Sesame Street</p>
+        </article>
+    </section>
+
+    <section class="references">
+        <h2>References</h2>
+        <h3>Dead References</h3>
+        <p>Albert Ostrich-stein</p>
+        <p>Sir Isaac Bird-ton</p>
+        <h3>Alive References</h3>
+        <p>Dr. Octopus</p>
+        <p>Proffessor X-Convict Bird</p>
+    </section>
+
+    <footer>
+        <small>&copy; 2025 Ostrich Zombie. All rights reserved.</small>
+    </footer>
+</body>
+</html>
+
+<!--
+1. Create a resume page that includes sections for personal information, skills, experience, education, and references.
+2. Utilize semantic tags like <header>, <section>, <time>, and <address> to structure the content meaningfully.
+3. Emphasize the use of the <h1> to <h6> tags to create a logical hierarchy within the content.
+4. Bonus: Add a printable version of the resume using CSS print media queries.
+-->
+
+<!--FINISHED-->

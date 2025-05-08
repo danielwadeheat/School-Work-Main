@@ -1,0 +1,108 @@
+<!--Week 6 Assigment 4: CREATING A STICKY SIDEBAR-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 6 Assignment 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .sidebar {
+            position: -webkit-sticky; /* For Safari */
+            position: sticky;
+            top: 0;
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .sidebar a {
+            display: block;
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 50px;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+            }
+            body {
+                flex-direction: column;
+            }
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Week 6 Assignment 4: Creating a Sticky Sidebar</h1>
+    </header>
+    <nav class="sidebar">
+        <h2>Sidebar</h2>
+        <a href="#section1">Section 1</a>
+        <a href="#section2">Section 2</a>
+        <a href="#section3">Section 3</a>
+        <a href="#section4">Section 4</a>
+        <a href="#section5">Section 5</a>
+    </nav>
+    <div class="content">
+        <section id="section1">
+            <h2>Section 1</h2>
+            <p>This is the content for section 1.</p>
+        </section>
+        <section id="section2">
+            <h2>Section 2</h2>
+            <p>This is the content for section 2.</p>
+        </section>
+        <section id="section3">
+            <h2>Section 3</h2>
+            <p>This is the content for section 3.</p>
+        </section>
+        <section id="section4">
+            <h2>Section 4</h2>
+            <p>This is the content for section 4.</p>
+        </section>
+        <section id="section5">
+            <h2>Section 5</h2>
+            <p>This is the content for section 5.</p>
+        </section>
+    </div>
+</body>
+</html>
+<!--
+1. Create a webpage with main content and a sidebar.
+2. Use CSS positioning to make the sidebar sticky, so it remains visible when scrolling down the page.
+3. Ensure that the sticky effect is disabled on smaller screens using media queries, to enhance mobile browsing.
+Bonus: Add smooth scrolling animations to links within the sidebar that navigate to different parts of the page.
+-->
+
+<!--FINISHED (I almost understand it all)-->

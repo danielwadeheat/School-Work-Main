@@ -1,0 +1,74 @@
+<!--Week 3 Assignment 3: EMBEDDING EXTERNAL MEDIA CONTENT-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Embedding External Media Content</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <style>
+        body {
+            font-family: Juice ITC;
+            background-color: #92733d;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            color: rgb(2, 94, 94);
+            font-weight: bolder;
+        }
+        .video-container, .map-container, .tweet-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            width: 100%;
+        }
+        blockquote.twitter-tweet {
+            margin: 0 auto;
+        }
+        @media (min-width: 600px) {
+            .video-container, .map-container, .tweet-container {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+            }
+            iframe {
+                width: 100%;
+                max-width: 800px;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="font-size: 42pt;">Embedding External Media Content</h1>
+
+    <h2 style="font-size: 28pt;">YouTube Video</h2>
+    <div class="video-container"> 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/PRAMFqh49b0?si=N_f6j03lwoGWYbFC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>Your browser does not support this media content.</iframe>
+    </div>
+    <h2 style="font-size: 28pt;">X-Tweet</h2>
+    <blockquote class="twitter-tweet" data-lang="en">
+        <p lang="en" dir="ltr">Funniest thing I’ve seen this year 😭 <a href="https://t.co/KN4MFhD2qJ">pic.twitter.com/KN4MFhD2qJ</a></p>&mdash; NO CONTEXT HUMANS (@HumansNoContext) <a href="https://twitter.com/HumansNoContext/status/1893535288871276611?ref_src=twsrc%5Etfw">February 23, 2025</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </blockquote> 
+
+    <h2 style="font-size: 28pt;" strong>Location to Nowhere</h2>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26095.155305078482!2d-98.48124907388454!3d35.159253948279144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87adb30af7b76acb%3A0xae2aac995c0e1ebe!2sNowhere%2C%20OK%2073038!5e0!3m2!1sen!2sus!4v1740885063242!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+    </div>
+</body>
+</html>
+
+<!--
+    1. Choose several different types of embeddable content, such as a YouTube video, a tweet, or a Google Map location.
+    2. Use the appropriate embed code or iframe to incorporate each piece of content into a webpage.
+    3. Style and position the embedded content using CSS to create a cohesive layout.
+    4. BONUS: Experiment with responsive design techniques to make the embedded content adapt to different screen sizes.
+-->
+
+<!--FINISHED (ALL I CAN FIGURE OUT ANYWAY; can't get video to display or center align tweet)-->

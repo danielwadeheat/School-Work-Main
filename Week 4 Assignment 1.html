@@ -1,0 +1,262 @@
+<!--Week 4 Assignment 1: NON-SEMANTIC PAGE TO SEMANTIC HTML-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Non-Semantic Page to Semantic HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100%;
+            background: teal;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: rgb(33, 145, 111);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            background-color: #333;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: wheat;
+            color: black;
+        }
+
+        .topnav a.home-button {
+            background-color: #156b4c; 
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: rgb(33, 145, 111);
+            color: white;
+            padding: 10px;
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 10px 0;
+            padding: 5px;
+            color: wheat;
+            text-decoration: none;
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 10px;
+        }
+
+        .contact-section {
+            background-color: rgb(33, 145, 111);
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label, form input, form textarea {
+            margin-bottom: 10px;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form input[type="submit"] {
+            background-color: #156b4c;
+            color: wheat;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #0e4d34;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Semantic Top Menu Bar Heading</h1>
+        <nav class="topnav">
+            <a class="home-button" href="#HOME">HOME</a>
+            <a href="#article">Article</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <a href="#content-1">Sidebar Content 1</a>
+            <a href="#content-2">Sidebar Content 2</a>
+            <a href="#content-3">Sidebar Content 3</a>
+            <a href="#content-4">Sidebar Content 4</a>
+            <a href="#content-5">Sidebar Content 5</a>
+            <a href="#content-6">Sidebar Content 6</a>
+            <a href="#content-7">Sidebar Content 7</a>
+        </aside>
+
+        <main class="main-content">
+            <section id="HOME" class="home-page">
+                <h2>Words and Palabras</h2>
+                <h4>Here is the content of the HOME Page "Words and Palabras"</h4>
+                <p>Here are some words about the contents of the home page. I hope you like reading words about words and content about content, because here are some more words about words in this content about word content. Also, here are some words about stuff and things some more, just because I need to take up some more space in this paragraph, especially since this is supposed to be the main content section. Why copilot is not helping me create random sentences, I do not know. Hence, now you get to read my rambling about words, which are palabras en Espanish.</p>
+            </section><br><br>
+
+            <article id="article" style="border: 2px dashed wheat;">
+                <h2>Article Content</h2>
+                <mark style="background-color: greenyellow;">This is a highlighted text, which is used to highlight or mark a specific part of the text for emphasis or reference.</mark>
+                <p>This time <time datetime="2021-09-30 09:00">9:00 AM</time> inline element does not render anything special on browsers but, only with datetime="...", is used to translate the time/date into a machine-readable format so browsers can offer to add date reminders through the user's calendar, and search engines can produce smarter search results.</p>
+                <q>This is a short quotation from someone about the above time information, which is inline, after or before a paragraph, usually, but not always.</q>
+            </article><br>
+
+            <section id="contact" class="contact-section">
+                <h2>Contact Us</h2>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <label for="message">Say something funny (besides "something funny"):</label>
+                    <textarea id="message" name="message" rows="4" cols="50"></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <small>&copy; 2025, Daniel's Semantic Blog Post Page</small>
+    </footer>
+</body>
+</html>
+
+<!--
+<body>:
+Purpose: Represents the main content of an HTML document.
+Contribution: Contains all the content of an HTML document, such as text, images, links, forms, and other elements. It is the primary container for the document's content that is visible to the user. The <body> tag helps in structuring the document and is essential for the proper rendering of the page in web browsers.
+
+<h1>:
+Purpose: Represents the highest level heading in an HTML document.
+Contribution: Typically used for the main title of the document or a section. It provides a clear indication of the primary topic or purpose of the content that follows. The <h1> tag helps in organizing the content hierarchically and improves the readability and accessibility of the document. Search engines also use <h1> tags to understand the main topic of the page, which can improve SEO.
+
+<h2>:
+Purpose: Represents a second-level heading in an HTML document.
+Contribution: Used for subheadings under the main heading (<h1>). It helps in further organizing the content into sections and subsections, making it easier for users to navigate and understand the structure of the document. The <h2> tag also contributes to the document's hierarchy and improves readability and accessibility.
+
+<h4>:
+Purpose: Represents a fourth-level heading in an HTML document.
+Contribution: Used for sub-subheadings under third-level headings (<h3>). It provides additional levels of organization within the content, allowing for more detailed structuring of information. The <h4> tag helps in creating a clear and logical hierarchy, making the document easier to read and navigate.
+
+<p>:
+Purpose: Represents a paragraph of text in an HTML document.
+Contribution: Used to group blocks of text into distinct paragraphs. It helps in separating and organizing content into readable chunks, improving the overall readability and presentation of the document. The <p> tag is essential for creating well-structured and visually appealing text content.
+
+<header>:
+Purpose: Represents the introductory content or a set of navigational links for the page or a section.
+Contribution: Helps in identifying the header section of the page, which typically contains the title, logo, and navigation links. It improves the structure and accessibility of the document.
+
+<nav>:
+Purpose: Defines a set of navigation links.
+Contribution: Clearly indicates the navigation section of the page, making it easier for users and search engines to understand the structure and navigate through the site.
+
+<aside>:
+Purpose: Represents a section of content that is tangentially related to the content around it.
+Contribution: Used for sidebars, pull quotes, or other content that is related but not central to the main content. It helps in organizing the content and providing additional information without interrupting the main flow.
+
+<section>:
+Purpose: Defines a specific section in a document.
+Contribution: Groups related content together, making the document more readable and easier to navigate. It also helps in structuring the content logically.
+
+<main>:
+Purpose: Represents the dominant content of the <body> of a document.
+Contribution: Clearly indicates the main content area, which is the primary focus of the document. It helps screen readers and search engines to skip repetitive content and go directly to the main content.
+
+<article>:
+Purpose: Represents a self-contained composition in a document, page, or site.
+Contribution: Used for blog posts, news articles, or other independent content. It helps in identifying and structuring individual pieces of content within the main content area.
+
+<footer>:
+Purpose: Represents the footer for its nearest sectioning content or sectioning root element.
+Contribution: Contains information about the author, copyright, links to related documents, etc. It helps in providing additional information and navigation at the end of the document.
+
+<mark>:
+Purpose: Represents text that is highlighted or marked for reference or emphasis.
+Contribution: Helps in drawing attention to specific parts of the text, making it easier for users to find important information.
+
+<time>:
+Purpose: Represents a specific period in time.
+Contribution: Provides a machine-readable way to specify dates and times, which can be used by browsers, search engines, and other tools to offer additional functionality like calendar integration.
+
+<q>:
+Purpose: Represents a short inline quotation.
+Contribution: Clearly indicates quoted text, improving readability and understanding of the content.
+
+<form>:
+Purpose: Represents a section of interactive controls for submitting information.
+Contribution: Provides a way for users to interact with the page by submitting data, such as contact information or comments.
+-->
+
+<!--
+How they all contribute to the semantic meaning and structure of the page:
+
+Improved Readability: Semantic tags provide a clear structure to the document, making it easier for users to read and understand the content.
+Enhanced Accessibility: Screen readers and other assistive technologies can better interpret the content, providing a more accessible experience for users with disabilities.
+Better SEO: Search engines can more accurately index and rank the content, improving the visibility of the page in search results.
+Logical Organization: Semantic tags help in logically organizing the content, making it easier to maintain and update the document.
+Consistent Styling: Using semantic tags allows for more consistent and targeted styling with CSS, improving the overall design and user experience.
+-->
+
+<!--FINISHED-->

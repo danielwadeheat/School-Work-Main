@@ -1,0 +1,87 @@
+<!--Week 3 Assignment 1: IMAGE GALLERY-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #4668547c;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: linear-gradient(to bottom, #005237 0%, #7ebe9b 100%);
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        figcaption {
+            background-color: rgb(2, 92, 77);
+            color: rgb(0, 255, 136);
+            font-style: italic;
+            padding: 2px;
+            text-align: center;
+        }
+        @media tablet (min-width: 481px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                width: 100%;
+            }
+        }
+        @media phone (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery">
+        <br1>
+        <h1 style="text-align: center; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 36pt; color:rgba(43, 172, 112, 0.5);">Funny Animal Gallery</h1>
+        <figure>  
+            <img src="https://i.guim.co.uk/img/media/f63abfb26e8ac8cfcf50dd696bbbec47be966f5d/0_0_2494_2588/master/2494.jpg?width=620&dpr=1&s=none&crop=none" alt="Bear Failing to Hide">
+            <figcaption>Bear Failing to Hide</figcaption>
+        </figure>
+        <figure>    
+            <img src="https://i.guim.co.uk/img/media/2879b9d935f14cbf364763d32927ba7f82578f3b/0_0_3325_2481/master/3325.jpg?width=620&dpr=1&s=none&crop=none" alt="Squirrel Traffic Control">
+            <figcaption>Squirrel Traffic Control</figcaption>
+        </figure>
+        <figure>
+            <img src="https://i.guim.co.uk/img/media/12331058eb61335a0d217c60fd7c25d202bfb499/0_0_2240_1488/master/2240.jpg?width=1300&dpr=1&s=none&crop=none" alt="Seaturtle Slap">
+            <figcaption>Seaturtle Slap</figcaption>
+        </figure>
+        <figure>
+            <img src="https://i.guim.co.uk/img/media/33e108f6809373474e76187af6099587d2e4bb8f/0_0_4860_3240/master/4860.jpg?width=880&dpr=1&s=none&crop=none" alt="Kangaroo Air Guitar">
+            <figcaption>Kangaroo Air Guitar</figcaption>
+        </figure>
+        <figure>
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAL4AygMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAADAQIEBQYHAAj/xABFEAABAwIDAgoGCQIGAQUAAAACAAEDBBIFESITIQYxMkFCUVJhYoEUcXKRobEHIyQzgpLB0fAVUyU0Q0Si4RZUY7LS8f/EABkBAAMBAQEAAAAAAAAAAAAAAAECAwAEBf/EACURAAICAgICAwADAQEAAAAAAAABAhEDIRIxBEETIlEyYXGBFP/aAAwDAQACEQMRAD8A7TmvZoLGvXqtHLQZIToTmm3LcTUSGdJmgXJ163ENBUOaeKnC6WUYx7REzN73TSNfPv0ocJZ+E+Nlh1JP/h9EbtaOesm3OT9e/NmSy+qGhC2fQhVAD0lGPEYB03auzxP8Vi+DGJDUcD8PI6mTaxwNGZbie4d2b8bb2Zn81UV2NX3RHKJdkrW9/wDGU55lE6IePyOkf1ML+14eIvLPjUmnq4qgLoju7Q87etuNlxWavlD7qfUPJISyy925Gg4XYnQTbUyuId14i2R5dbbv080YZYyBPx2ujs5GgSz2GPiLIvduVPwZ4R0uP0e3pytlHJpYrt4P3dbPzOn47Uej00UvJtlC71Z7/grpI56oy2J/SrQ4VwqqcFxCjkGKnNo9uJZvm7M7u7dW9bumqoqqminp5RkikFnAxLNnZ+dfNfCapHHOEmK4mA/UVE77LrcRZhZ/NmzW5+hThBOE0/B6rK6IReSnIubLjZu7if3qcZ/ai0ofWzr+aR3SZpCViIrEluTE11ghXNMckI5BDlkq2tx7DqL72qj/ADLL+gPRbXJM1iKz6QKMP8vAUni4mVFWcOcTqPurYx97puDByR1GSYR5ZCKi/wBUov8A1EH5lx2oxHEa372pkL8WTfBB9Gl7S1JdsFs7zeluQM0tyQegty9chXL2aJqC3JL0PNed/Egais4XVpUXBjE6qLlR0x29zu2TP8VwXA8IvptqYjaRcqQrM8u997+S7pwvjGq4MYnBcOqmPpdTZ/ouV4bJF6HbTxbQh3bUh3Z8+WfN3/x+TyZNVR1eNFOyRRyz4aBDSS/VFyx3uz9+TquqppZTIpdndd0hz3e9Eq5JdXpGzt8RZZPl7/gooFEYfVDTl2tTCXxZ1CPWzpl/RFkks5Euz8XN8t6dDVFyTIfw8l/W3N8k6RqMOXyu0PF78md1EKGhl+6K0vCTt586oqJuy2wHFZeDePQYjFd6GRNHVReF3yd/Lj8lt/pgxj0XgxFFTy/W1RswkPZyzd297LmmRRBbUSjJFvtku35d+bNmyDwgrZa+moaWWUi2Mdgc7ce74MyrGdRaJShckyMMdlNTebc/x96sMFqv6Vwtwie7SM43EO7c75P8HdVcEksU31oj4fXllx+9GmP/ABXDC8bafNRi/siklpndpOGuDif3/wDxRP8Ay/Bzh2oVQ+zzrkUoFfyUjRl2V63xxPOuR0Wq+kCANNPAReItyqKrh5iJgWyijj+KysbJHj1rVFMFNk+oxfE624payT2RLJlBeKUv/sjiNgWp2Sm8j9G4gWpxDlkiAA9lOaNSqegll8Iqcsj9sdR/COL9EE7JWYYbFF0iJL6JF/aJTc0PwZ0WuxvDqL72cfZHjVRPw3wwOQMhfhXOngsOX60pNT2l1prx9tX0Scmbafh6P+3pvzEq2q4d13QGOP4rMOVnRQCkv6KeKBv2Xs/C7GJf9zb7IqEeOYqXLrJPzZKEPspHLwqiNxLrD5qmqO2oqZCEtxCRO+fc7czKPiUmy+zUloiO7Tzc3Mp9AHotGUspEI+Hc7vuzbP4Kqqyll+6iGMeke/cz+vnXjeRPnk/w9TBDhArSw2IzKWrlkkLsDvL3cTIcpwRB9UJR9kSLPN+9m/ZFqDL/LYeJSSl0iLc3e/d571FkigoDulIqusL+2OeXc3Uy0QyI0wyy6vqYx/9yDf5M/z7kAI7jKIJSLivMhFhbybnU8o5ag/rYJLfCbCPq63UiSWKih1kI9obbifPvfm9XWn6J9mflOuGbYU5FJF0toGbP3ZJ+J0ktLNBtZR2XRO18t/M/VluV/HXwVHIERu3iXf6k6PDxrYSiqJfSbvDlZ8UewVRRl9nqftA3RW8rm/n7JKH7fwkprOTHv8AdvRuEGD1NLTbWLaCIjqG53Z2Z2VpwYwoqKm9Kl+/kHSPMDP+qGPHsM56J02o0wX8SK469a80BHyBIl6NpdnG2CO00QIuwp9LhUpK1p8H7a58nkRWkFJsooqYvaJTYMMlLoq+ipIouQKMJCC5pZ2+hlj/AErYMKENRqaEAgjEY9pNY1CWTe2USQ0QiDoomY/2UBjK/opbiTXH2w9GG2/JS7ftqW8In0UwsMEu0vW5wRyUwDPckZ/CpTYTL/pESeOE4j7XtLLLD9DxkQlNwym2s1x8mPJyL5M2XOntg9d04tKmxhLRQ3VGzG3O0d3y61LNmXH6srhg3LZ6vnsh7Ij0Sy3v1+pZspCqjIjlLYDyrc9/UzZ8bqTi9SJ8uXT2t7+5ud+P3Kuw6X0qv16YIf1be79682MaO9yvROpW2p7CItnd0RHd6nd+N0QIfR7h0l+Fve+aPh+MUPpOyp7SLpFzszvkj1YDeQ042iW/18aaM91QHDVlDWCXatHw5t8lTYgxGGy1foritCUKm0+T4fiostJfDdb+ZUbJ0QaRtHK/Mrugu02Fq/neqymh/CrrBtlEZbUeV58SHIPEtqEpaiYqYx072uHPj5vWyYN0R21YlaJZXCPMpMJ3wxDEPJz193r+Kq66trsLh+10O2o5M474yYnZ+9+bN88utTWWXIeWOLjs01JhsVRqp4iIS6Ss4MHs5elRuAdWR4II3aRJ2Hry5tzrRlIKM8l6IrEiHDQiPIFPKk8KJ6SXQ5KadTKgqDwQAqUemKhvQkBkUUvK6JcysmqCSlUD0xFa11RuBWFTyhqO1DKNTp54rNH5VAklvUZQ39RHGmeGMQXt/aQdp+ZDyPtorG32GingpZZT1kVqtqWnii5Y3KcNNFFqNIckQBdyl0Sy2TUUhQcb7dIqQAeJQRITRNsMWm5S+bfQyHSsNhSnOQj5Ms3ilRFEBT7LZjvtlmLMn9TPxK+qJIpQET06s7evJt3xWW4QQRU8MtdixFJEO6ILtzv1MyKdlL0ZTEsRL73tFp/66/Wq+M5ar7LEXK1lqy5uN+vJBxOollm2tQNspcmIRyaMeZmbmUGGYgMpezubz439e7JdCiqEcmbrC8JpqeESpCEpYRzlPnMn42fqyZ+JXYw8kj+98/dmoHBuD/B/SQ1bQsxHy+O9EwyvKWs9FAfrbnbVusbr9e9c7u2zpjVITE6ce1qLkiPPu6lBmq7A2AUZF4iF2+avqmaWiqS0xkWzcyIiZnBm625s09mKtDa09GUhFlyhzdvXluZu9Sayyelr9KqWKPb2UNG2y1AIj4S//Faw4eRhtbdN2oR+bKX/AE6sO2yjHxbQSbLzyy+KfVjitBR3BBpu12ixOzdbZO7dXHktLDm7i0BZ8XTQSnhGnC3lfoouPUs8tNBBSEP2iRgO4c2dn4/U7cfkpNORVtNoljGctwiWl3fc+7P18S8FQQTDAd21jLVcPO27+etFwkttCuaadF3g1PBhtHFRxcmMWa7nd+d3VhJOKoBnlE9fJU2E+kZKak/ZCOT0ThqRTZqoe0oEz3noXgDXcaKbb0Hmwz1MvZSi8pcvSkAbzTjmsDlK8IX2I2wMsgxe0otTNYCSSUfaJAmAj1GrUjKwe1I0Ta+JeGNesFAz0WZNAfLIUttN2itQ5miv6KQdl01z8t+hAhR0PiQ2CAORESV7egkES7Iii7/oNBNhFKHZWA4XVhVE23uughJwgDmd24yy59+TN6u9byoD7NKQcq1+T19ywPC+GymggAdRZMIj1Z8frd3fyyTwaCkYWYiOYpTK4iz1db573QYHGwhP83P71JrBsus0iJWD5Nv+XxUHOzUC6UIdC4A1onhvod2qM3tu3Ztnm+XvVvXP6PUz11JEPpllg9WeW98utmybzWBwCoLYz2EQyiTGGrndnb9FoMKxesCGWU4tpP0bvc7ZcXMpuKUrKKTcKDcEY55T2+J3DEMpbUpG1SFm2TNn1c7+5dOariKmtp/q4uwO5vfzv3rl1biE/wBVLUdEdQjubPnZu5s8vJWuG43fDaZWily3WgQr2bYqumMxE5ZCt6JG7txIOK1sUUO1odJD5d3Gsk+IayLaiPPdclqsR2tNol/5b2SXK0M0qCVNANeG1p5fRiKS8hjJmByyyf1eptz9ylPNKFTRjV3ekkTBdbuMWy359eXP+6iYCUVaE9HLpIhdtRZNvbe2fNnzPzOzKLUUstBWRfXySQDEMkW0Jnyz5TM7ce9uP1Kk5egQibHZXdFPGMQTwfagMsXSFn9+9EGMr7j5PZXF3oA2MbuQKKID00+Q79IaULaRB0k7lx1EZIWc7A0KDI21Dso8lUJ8i1R7iNUhLjEzGtT2JtopxvZp5SRmLp6RTSyKPYLGMQ9NP9Ii7KfaKTYrl+eQtMIUQ9lOZvClIhNOFhPpIX7DQ13IEokIcvUvHD0rkNxHk3IwmEJtuispwkpyqq+IYh+tLIA7nfdn5Nv8lpmjLtKDUQbI5anpCDsJdWbKinsJyjhBFENeUFP9xDoEut92bv63VJKOu1bPE6HZQlOY6ricvJs/dxe51kXG+72tS7YO0TkScKk2VZs/7guxfP8AR1qcEkiM7T7X8+SxIHZUjJ2SZW+2lp5rgJCa/BoMuMRnGqhup+jmxx9gmd82fzUKGjrqj7qCT2rXZvNAxABqg/qFPpnHJ5wF8s2bLe36rtuDYbFUQjV1VJUFCWoTjFmHd15vnx7tzJW9XZTFBSbs5bDwcxGoDWVv860g8G8VA/qtVvRInXdaMcO3DT4VJBU26Ani5W/dk75txt1qZS7QAIcQwqGKfLMRgZjY/U+Tb252fL3JbX6Ufx/h871OIz4DUzhLEQ1g5Nbdp3jmz587Mz8S1FCPpvBjCJ+V9UcJc+sXdnZ/JxfyVT9NMZf+dDHsih2lLHo3ceZM3E7tzZeSFwIrZf6VieFS/wC3L0mLuJtxN35sz+5kZxuOiMJJTN/hZEeFU3aGNmLy3foj7UgUHg1NtcNtAbrTL4vn+qtXDwrzpScZsWSd6AaiBBeOXsqdqANCFcR9JH5ZM1N+wAQF07fwp7U49pONi6ZLzbLpklcpN3YeI0YB5S8wXp+0iDpChS19LEdpyih9jDmaxOQGr6P+6m+n0390Vql+A2SckQY14WE09iEE9/gRLe2hsFp6BUq/sCkaTtpeVM3QBxI02qg2sOy/N6m3qRtA7KTNDmbkYPhjR/Uy9G0Mh9btnl7mZ/Nc6mGwPazf9l1zhZSEdGXiucvk36e5cuxOKyb3/B3Xo+PK4iyRUSNyvaVkR7WGIu0Or1tudQKgdfvR6I7wKLzH9V0MVBopiDker1suzYX9K2D/ANNgHEIKimIYmAhjC6O5nZ892/m6udcTfQpNJKN9p/dFyv3SOKY1nd6/6W+DJhFPCdWQjKD6YHybJ3zzzyyzZ/go9R9MmAWxlFR4lJsxJmtAWZ3dsucmdcZigL6+ANJWvb624lZ1kUFPQQQRWkJGzXcebO2efwQnGgwVlljOJ1n0iY2+JQ00cMlHEzwUwlmWzB7nZ3ybMnzf+b1rBwDD6DhCRUUWziqonttJ3Y2d3Z2fPj7vV3rN8AcIqcNxulq7bvSM2iEeceN3WtKo2uN4hgp6Z6c3qaIi6YZM5i3qzZ+/N+pThl5TcfRXJiUcafsgcDWlihrIjEro53AvWzMz/JaBoi7RIFAI3zzxD99JefcWTM/yzRyYj/1Vw5k/kZNJvYuwLtkoxhSnNsrtXtIuwG/WRfmTIKSmiPa26u0hHj7YXEkNRCAbW0rR6XMhnSwHyxRzxEvRig/0iUdpEspRX8WwIT0GlPTbqXosNGLljGSc8/hTDklND5ENo96NF/aj/Kvei039qNMK7skmWEpvKCyxu9lMzFAv8VqfFIJnoIbk/JonzHOIrwMPQTiMU3bWcgUuw05Ci4gGtPUYjlPsihyBL05yW67YyVD8RpvSIbbh5vm37Lk/CCl2VZL5/ouqjGOqwdSwPC2m+2Ty9H/rP9V2+Nmj/FL/AKbt9mFqOWP85kOj/wAwi1Y2GKHTtbNF4iXoImyVIy9EyJKKGCwC3pZRA6ap8WR+T/srfg9gE2KYwNDDFLURRynZaTCwjxszu+7PLvWew07zKlPpax7nbj+HyXQPo74T0OEHKGIkMMkZOcUpXPvdmF2dmfi3M/Fxt3qeV/UpidM09NJR4XikUuJSlTzRjsKalLIcnfduZ3zd33Mryp4D+myQ41TyyU2KiQziJs2QllqF+52d2frZWEfC7AKyHby1VDIUJjbdm7M7s2Ts7tmz72bcotb9IWDtTSlDWXaLhKFnct+bM7M7M3Gz8b9658cceO3dl8mWU+lRlcTin4PTF6XF9RNIVhRlm2bZZtx57v5moo45r0U0hfiZBxbHouEJjEAlHFCJMNxM5Pm7b3ybJn4mybiZslUPJLTzbIy09pN8cJO5LZOtaNCWM6NEBXeIt3wTHrqwtVsY/FVcT3hcBe1pQ6+MrLgIrekn/wDPiXoTZYDist9u1h9m1S48WKz62D8UfF7lkCIQ1dLsp0WJSxH4UjwYn6Ho3dNWQVAfVEN3Z50TaLGwVcEuqKW0uzxP71eYbiRaYqj8Mn7rly+K0rgYszctWlB2/hRWkL2hTLGXH12Cj0oRGd1paU4BENQDqJO2hdlPGT8Ko5INocMHSMrUYYB7SDp7S8xD2lNy/sFoIUAh0rUPZRdq5eOUUxzHtKdoW0EaMe0s5wpw+8Cs1Xb/AIZfz1rRgcSDVjFLCQ9K1UxT4ysZNHEMSgsP3qBG32mL2mWr4VUoxVPJ5I/qss/+ZH22+a9zHK0JJEmY9CHE/wBciS6JkyZrDuVBQraLSArSEsxLvbezt5qfVB6QA1lPpu+9EegfPu6n429apTK5SKapKINBaS5Q8z+SDRiXHWTgBCEun2nbi7k6B66q0xDd4tzZdW/iT8O2VbXxQHEPiIc81OYhCa0BtEeSP6qbVeh1sucHo56CH7RLtC6Vvnz87q1miGUO0QoFKW1phlDpbi8tykN4O5TbOiKSVEUX2XSU2lmv0qFUcv8A+XcgPLYqLaJvTJtbSCfI/nkqWaEgPkrRUE0VRpMrZeiXM/8A2pEtLFL96N3iFI3TKJWtGJl/F+qm4djEsQDEeoR5N3UrefBhl/y8ol4S3OqKsw2WnMrxIf5xrWBo2OF198I2F9UXwfqVntvEucYPiBU9TspS03alr2m3LlzePzlaEaLPaEXSSbYg6Kaw/hTmYumvOpHN/gQZ9GsU9pvChWogilaQ1McD3ndanH4BSMxeykcC7WlCg0KxLzFyiXnDxJJgHkgV13KRSBTMNwmpr9qXa5PksRPDZMPtN811PGKPan4R+fF+yxOMYdstrOfJHNvNex4+RUkP6KSp5aYeumEuzuT6v90KN9BLsQjI7pWJeJkjMiYveDcgxVm1PVpyUkhEJi81V4Ydh3fzJWNQ/wBpU5DxNJgc2gh/m9T877hut8XEqXDDsNXAFeBabiHdzfznUmtnRF6BVOoPEP8AHUV5Bs1o5kPT09rzUUx0fiTrQstiBPsjV5TVhSgOpZ4h/MpdJJYtNWCDouDMT9pNI7wtlHaD2ervbqQWlvAdX6JRMT8P7+pTRayhx/CCi+2UlxRDvIedvWo8ePGEYjnnkzNmtQJEHLttL3ervZVxcHaMychNhZ3zZupYRxNU0g9MU8pB6AqkwTFCxKiCUhtJ+NWYlcvKyY3CTTORTsO0ic8yE72aRSEPSUxwm2KzopCmINSZldqTkdGUhgzCem5FBhv6SH+EUXOUStuFBg5V2eOITArBJYfh3IMWyow7LmXn/H963ses7SXKsfqSrsZqpJONpHFvUz5fJl2eDFudv0FysqKtv55KNF0lOrx/45fJQYuWvWQrBk6ROJI6wCZRK2nfXd4WVTSaTVrl0u0KSRSJY0BaBV3FJZaXay+X7qipCth/ErqIrgFTKxH1TXgVnZ0qExdFTSMs7OioZj0v5xoozPGyRys1dH4JJC6Sfyg9yYAYD0eHjRxITUAGtT4yStDJk4XL8Pz704ZpmFso82y480KM9ftKW7Dm+5KMf//Z" alt="Farmer Fran Horse Face">
+            <figcaption>Farmer Fran Horse Face</figcaption>
+        </figure>
+        <br><br>
+        <a href="https://www.theguardian.com/world/2023/dec/09/wild-true-stories-21-funniest-animal-photos" rel="author" target="_blank" style="text-align: center; color: aqua;">Cick here for images source and more heartwarming animals</a>
+    </div>
+</body>
+</html>
+
+<!--COMPLETE-->

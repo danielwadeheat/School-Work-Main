@@ -1,0 +1,58 @@
+<!--Week 6 Assigment 1: UNDERSTANDING THE BOX MODEL-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Understanding the Box Model</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .otter-box {
+            width: 80%;
+            box-sizing: border-box; /* Makes the element smaller; "border-box" property does NOT include the padding and border in the element's total width and height */
+            padding: 30px;
+            border: 8px solid #008458;
+            margin: 30px auto;
+            background-color: #00845881;
+            color: #016d49; 
+        }
+        .middle-box {
+            width: 80%; 
+            box-sizing: content-box; /* Makes the element bigger; "content-box" property (default) does NOT include the padding and border in the element's total width and height */
+            padding: 20px;
+            border: 5px solid #7e0707;
+            margin: 20px auto;
+            background-color: #7e07077e;
+            color: #660202;
+        }
+        .inner-box {
+            width: 80%;
+            box-sizing: border-box; /* Makes the element smaller; "border-box" property does NOT include the padding and border in the element's total width and height */
+            padding: 10px;
+            border: 2px solid #089eae;
+            margin: 10px auto;
+            background-color: #089dae88;
+            color: #015e68;
+        }
+    </style>
+</head>
+<body>
+    <div class="otter-box">
+        Otter Box
+        <div class="middle-box">
+            Middle Box
+            <div class="inner-box">
+                Inner Box
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!--
+1. Create a set of nested boxes using HTML and CSS, with different padding, border, and margin values.
+2. Experiment with the box-sizing property, using both content-box and border-box values, and observe the differences.
+3. Create scenarios where margin collapse occurs, and explain why it happens.
+    - The top margin of the .middle-box (20px) and the bottom margin of the .otter-box (30px) can collapse. The resulting margin between the .otter-box and .middle-box will be the larger of the two margins, which is 30px.
+    - Margin collapse occurs when the top and bottom margins of block-level elements collapse into a single margin that is equal to the largest of the two margins.
+Bonus: Use developer tools in the browser to inspect the boxes and see how padding, border, and margin are applied.
+-->
+
+<!--FINISHED (Do not understand everything though, about margin collapse & dev browser tools)-->

@@ -1,0 +1,91 @@
+<!--Week 5 Assigment 4: SMOOTH-TRANSITION HORIZONTAL NAVIGATION MENU WITH DROPDOWN-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smooth-Transition Horizontal Navigation Menu with Dropdown</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            overflow: hidden;
+            background-color: #333;
+        }
+        header ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header li {
+            position: relative;
+        }
+        header a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        header a:hover {
+            background-color: #5b0606;
+            color: rgb(147, 140, 4);
+        }
+        .dropdown-button:hover > .dropdown-list {
+            display: block;
+        }
+        .dropdown-list {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+        }
+        .dropdown-list li {
+            float: none;
+        }
+        .dropdown-list a {
+            padding: 12px 16px;
+        }
+        .dropdown-list a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        /* Smooth transitions */
+        header a, .dropdown-list {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>    
+            <li style="background-color: var(--primary-color);"><a href="#home">Home</a></li>
+            <li><a  class="dropdown-button" href="#services">Services</a>
+                <ul class="dropdown-list">
+                    <li><a href="#webdesign">Web Design</a></li>
+                    <li><a href="#seo">SEO</a></li>
+                    <li><a href="#marketing">Marketing</a></li>
+                </ul>
+            </li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+</body>
+</html>
+
+<!--
+1. Create a horizontal navigation menu with dropdowns using HTML lists.
+2. Style the menu using CSS to make it visually appealing and interactive.
+3. Implement dropdown functionality using the :hover pseudo-class and sibling or child selectors.
+Bonus: Add smooth transitions and animations to enhance the user experience.
+-->
+
+<!--FINISHED (can't figure out why the dropdown isn't working though)-->

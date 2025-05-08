@@ -1,0 +1,94 @@
+<!--Week 4 Assignment 2: CREATE A BLOG POST PAGE USING SEMANTIC HTML-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Post Using Semantic HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale: 1.0">
+    <style>
+        :root {
+            width: 85vw;
+            max-width: 100%;
+            height: auto;
+            background: teal;
+            color: maroon;
+            font-family: Comic Sans MS, cursive, sans-serif;
+            --primary-color: teal;
+            --secondary-color: maroon;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body> 
+
+    <header>
+        <h1 style="text-align: center;">Blog Post Page Using Semantic HTML</h1>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <aside style="float: left; width: 10%; height: 21vh; border: 1px dotted orangered; padding: 10px; background: teal;">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li><a href="#post-1">Post 1</a></li>
+            <li><a href="#">Post 2</a></li>
+            <li><a href="#">Post 3</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <article id="post-1" style="margin-left: 11vw;">
+            <h2>My First Blog Post</h2>
+            <p>Today I went back to yesterday, not to live in the past, but to learn from it.  A wise person once told me, "Focus on past victories, not past failures."  When I applied this, I realized I have many wins I had not taken into account.  This gave me motivation to keep moving forward with passion into my new state of gold in learning.  The impetus was love; realizing I am not alone, because the words, wisdom and love of people who love me are with me, and our spirits and hearts are connected.  I also realized the impact I can make on others who I care about, in the same way.  Realizing it's all about love in the end gives a freedom and confidence beyond what anything else can give, because it takes the focus off of self and onto others, taking away the pressure on oneself.  Further, we have an all-powerful God who is love, and is always here, in the past and with us in the future.  He can guide us through the past to see its wrongs look right and turn its negatives into our future positives, by learning from Him about them in the present.  All this was realized by looking back, but not in a negative mindset.  Sometimes, looking back can help you heal the pain and learn from it, propelling you forward, with wisdom and passion.  </p>
+            <aside>
+                <figure class="image-figure">
+                    <figcaption>A beautiful sunset, from back in time, to the future:</figcaption>
+                    <a href="https://nerdtropolis.com/back-to-the-future-day-2023-revisiting-the-iconic-trilogy/" target="_blank"><img src="https://i0.wp.com/nerdtropolis.com/wp-content/uploads/2023/10/Back-to-the-Future-Day-2023.jpg?resize=1024%2C589&ssl=1" title="Credit: Nerdtropolis.com" alt="A beautiful sunset from back in time to the future, photo by nerdtropolis.com" style="border: none"><br>Credit: Nerdtropolis.com</a>
+                </figure>
+            </aside>
+        </article>
+    </main>
+
+    <section style="border: 1px dotted orangered; display:block; margin: auto;">
+        <h2 style="padding-left: 3%;">Here's a video:</h2>
+        <figure>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fIwjfBzlpoI?si=OZ12wS1jBBhtr6V9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <figcaption>
+
+            </figcaption>
+        </figure>
+    </section>  
+
+    <figure id="comments-section" style="margin-left: 10vw;">
+        <figcaption>Comments:</figcaption>
+        <details>
+            <summary>Click to view comments</summary>
+            <p>Comment 1: I love this post!  It's so inspiring!</p>
+            <p>Comment 2: I agree!  It's so true that looking back can help us move forward!</p>
+            <p>Comment 3: I love the image of the sunset!  It's so beautiful with flames coming out of tires below it!</p>
+        </details>
+    </figure>
+
+    <footer style="text-align: center;">
+        <small>&copy; 2025 My Blog Post Page</small>
+    </footer>
+
+</body>
+</html>
+
+<!--
+1. Design a blog post page that includes a header, footer, navigation, main content area, sidebars, etc.
+2. Use appropriate semantic tags to mark up each part of the page, such as <header> for the header, <nav> for the navigation, <article> for the blog post, <aside> for sidebars, etc.
+3. Include multimedia like images or videos within the blog post using the <figure> and <figcaption> tags.
+4. Bonus: Include comments on the blog post using the <details> and <summary> tags.
+-->
+
+<!--FINISHED-->

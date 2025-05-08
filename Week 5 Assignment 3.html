@@ -1,0 +1,177 @@
+<!--Week 5 Assigment 3: VALIDATED CSS-STYLED CONTACT FORM WITH ELEMENT STATES-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validated CSS-Styled Contact Form with Element States</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+            margin: 0;
+            padding: 0;
+            background-color: wheat;
+        }
+        .header {
+            font-family: jokerman, fantasy;
+            font-weight: bold;
+            font-size: 28px;
+            text-align: center;
+            color: rgb(9, 110, 102);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.671);
+            margin-top: 20px;
+        }
+        .form {
+            font-family: fantasy;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            width: 75%;
+            margin: 0 auto;
+            padding: 10px;
+            border: 3px solid rgb(9, 110, 102);
+            border-radius: 10px;
+            background-color: rgba(0, 128, 128, 0.842);
+        }
+        .border {
+            border: 3px solid rgb(9, 110, 102);
+            border-radius: 10px;
+            width: 75%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(184, 127, 3, 0.801);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        input[type="file"] {
+            margin-top: 10px;
+        }
+        button {
+            background-color: rgb(9, 110, 102);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: rgb(7, 88, 82);
+        }
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: rgb(9, 110, 102);
+            outline: none;
+            background-color: #e0f7fa;
+        }
+        input:disabled,
+        select:disabled,
+        textarea:disabled {
+            background-color: #f0f0f0;
+            color: #999;
+            cursor: not-allowed;
+        }
+        input:valid,
+        select:valid,
+        textarea:valid {
+            border-color: green;
+        }
+        input:invalid,
+        select:invalid,
+        textarea:invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+
+<body>    
+    <h1 class="header">Validated CSS-Styled Contact Form with Element States</h1>
+    <form action="file:///C:/Users/Daniel%20Wade/OneDrive%20-%20francistuttle.edu/School%20Work/Francis-Turtle-Assignments/Week%202%20Assignment%201.php" method="post">
+        <fieldset class="border">
+            <legend class="form">Advanced Contact Form</legend>
+            <label for="name">Type the most common thing you've been called:</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            
+            <label for="email">Type your electronic mail username:</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            
+            <label for="phone">Type the numbers that can be dialed to reach your primary electronic voice calling device:
+                <br>
+                <i>(Must be in format 000-000-0000)</i>
+            </label>
+            <input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            
+            <label for="date">Input the day of the month of the year of today:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="birthday">Input the day of the month of the year of your birth:</label>
+            <input type="date" id="birthday" name="birthday" min="1910-01-01" max="2025-02-25" required>
+            
+            <h3>Please, select one option from the following list:</h3>
+            <label for="Option A">Select Option A</label>
+            <input type="radio" id="Option A" name="radio_choice" value="Option A" required>
+            <label for="Option B">No, select option B</label>
+            <input type="radio" id="Option B" name="radio_choice" value="Option B">
+            <label for="Option C">No, option C!</label>
+            <input type="radio" id="Option C" name="radio_choice" value="Option C">
+            <label for="Option D">No, option D!! Unless you want another option...</label>
+            <input type="radio" id="Option D" name="radio_choice" value="Option D">
+            <br><br>
+            <label for="select">Select one of the options in this list, for a surprise (Just try more than one, I dare you):</label>
+            <select id="select" name="select" required>
+                <option value="">Select an option</option>
+                <option value="Option 1">Option 1</option>
+                <option value="Option 2">Option 2</option>
+                <option value="Option 3">Option 3</option>
+                <option value="Option 4">Option 4</option>
+                <option value="Option 5">Option 5</option>
+            </select>
+            
+            <p>Check an option below that best describes you:</p>
+            <label for="think"><input type="checkbox" id="think" name="action_checkbox" value="think">Think</label>
+            <label for="overthink"><input type="checkbox" id="overthink" name="action_checkbox" value="overthink">Overthink</label>
+            <label for="talk"><input type="checkbox" id="talk" name="action_checkbox" value="talk">Talk</label>
+            <label for="do"><input type="checkbox" id="do" name="action_checkbox" value="do">Do</label>
+            <br>
+            <label for="textarea">Type any questions/concerns/comments about life that you have, in a box to the left.</label>
+            <textarea id="textarea" placeholder="You want to type some stuff here, don't you?" required></textarea>
+            <br><br>
+            <label for="file">Press the button to upload a file:</label>
+            <input type="file" id="file" name="file">
+            <br><br><hr style="border: 1px dotted teal"><br>
+            <label for="Submit button">Press this button, to submit yourself to me, heathen commoner:</label>
+            <button type="submit" id="Submit Button">Submit</button>
+        </fieldset>
+    </form>    
+</body>
+</html>
+
+<!--
+1. Take the contact form created in a previous HTML exercise or create a new one.
+2. Use CSS to style the form, including input fields, labels, buttons, etc.
+3. Experiment with different states of form elements, like focus or disabled, using pseudo-classes.
+Bonus: Validate the form using CSS, employing the :valid and :invalid pseudo-classes.
+-->
+
+<!--FINISHED (Do I understand all of it, no)-->

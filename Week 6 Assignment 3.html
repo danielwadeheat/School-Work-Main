@@ -1,0 +1,85 @@
+<!--Week 6 Assigment 3: BUILDING A RESPONSIVE GRID SYSTEM-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 6 Assignment 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .item {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        img, video, iframe {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Responsive Grid System</h1>
+    </header>
+    <div class="container">
+        <div class="item">
+            <h2>Item 1</h2>
+            <p>This is some content for item 1.</p>
+            <img src="https://i.ytimg.com/vi/oDG4truqCDo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB0IXXv9_6reS5ikvwcvfT-OXD8Rg" alt="Chubbster stealing eggs">
+        </div>
+        <div class="item">
+            <h2>Item 2</h2>
+            <p>This is some content for item 2.</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/AHBhrMVIlvY?si=fyhsBlzLvwqaveOc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                Your browser does not support the video tag.
+        </div>
+        <div class="item">
+            <h2>Item 3</h2>
+            <p>This is some content for item 3.</p>
+            <img src="https://sadanduseless.b-cdn.net/wp-content/uploads/2019/07/funny-mr-bean2.jpg" alt="Placeholder Image">
+        </div>
+        <div class="item">
+            <h2>Item 4</h2>
+            <p>This is some content for item 4.</p>
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</body>
+</html>
+<!--
+1. Design a grid system with rows and columns using HTML and CSS.
+2. Utilize float, flexbox, or grid to align the columns.
+3. Create media queries to make the grid adapt to different screen sizes, stacking columns vertically on small screens.
+Bonus: Embed media (images, videos) in the grid and make them responsive as well.
+-->
+
+<!--FINISHED-->

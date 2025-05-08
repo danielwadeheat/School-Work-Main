@@ -1,0 +1,142 @@
+<!--Week 2 Assignment 3: MULTI-STEP REGISTRATION FORM-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Step Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            font-family: fantasy;
+            font-weight: bold;
+            font-size: 28px;
+            text-align: center;
+            color: rgb(110, 24, 9);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.671);
+        }
+        .form {
+            font-family: fantasy;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            width: 75%;
+            margin: 0 auto;
+            padding: 10px;
+            border: 3px solid rgb(9, 110, 102);
+            border-radius: 10px;
+        }
+        .border {
+            border: 3px solid rgb(9, 110, 102);
+            border-radius: 10px;
+            width: 75%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        .step {
+            display: none;
+        }
+        input[type="radio"]:checked + .step {
+            display: block;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .hidden-radio {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="header">Multi-Step Registration Form</h1>
+    <form id="regForm">
+        <!-- Step 1: Personal Details -->
+        <input type="radio" name="step" id="step1" class="hidden-radio" checked>
+        <div class="step">
+            <fieldset class="border">
+                <legend class="form">Personal Details</legend>
+                <label for="name">Name:</label>
+                <br>
+                <input type="text" id="name" name="name" placeholder="Name" required autocomplete="name" title="Enter your full name">
+                <br><br>
+                <label for="birthday">Birthday:</label>
+                <br>
+                <input type="date" id="birthday" name="birthday" placeholder="Birthday" required title="Enter your birth date">
+                <br><br>
+                <div class="buttons">
+                    <label for="step2" class="tabcontent">Next</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <!-- Step 2: Contact Information -->
+        <input type="radio" name="step" id="step2" class="hidden-radio">
+        <div class="step">
+            <fieldset class="border">
+                <legend class="form">Contact Information</legend>
+                <label for="email">Email:</label>
+                <br>
+                <input type="email" id="email" name="email" placeholder="Email" required autocomplete="email" title="Enter your email address">
+                <br><br>
+                <label for="phone">Phone:</label>
+                <br>
+                <input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required autocomplete="tel" title="Enter your phone number in the format 000-000-0000">
+                <br><br>
+                <div class="buttons">
+                    <label for="step1" class="tabcontent">Previous</label>
+                    <label for="step3" class="tabcontent">Next</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <!-- Step 3: Preferences -->
+        <input type="radio" name="step" id="step3" class="hidden-radio">
+        <div class="step">
+            <fieldset class="border">
+                <legend class="form">Preferences</legend>
+                <label for="select">Select an option:</label>
+                <br>
+                <select id="select" name="select">
+                    <option value="Option 1">Option 1</option>
+                    <option value="Option 2">Option 2</option>
+                    <option value="Option 3">Option 3</option>
+                </select>
+                <br><br>
+                <div class="buttons">
+                    <label for="step2" class="tabcontent">Previous</label>
+                    <label for="step4" class="tabcontent">Next</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <!-- Step 4: Confirmation -->
+        <input type="radio" name="step" id="step4" class="hidden-radio">
+        <div class="step">
+            <fieldset class="border">
+                <legend class="form">Confirmation</legend>
+                <p>Please review your information before submitting:</p>
+                <p id="summary">Summary will be displayed here.</p>
+                <div class="buttons">
+                    <label for="step3" class="tabcontent">Previous</label>
+                    <button class="tabcontent" type="submit">Submit</button>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</body>
+</html>
+
+
+<!--1. Design a multi-step registration form that collects different information across several steps, such as personal details, contact information, preferences, etc.-->
+<!--2. Use buttons or links to navigate between the steps, showing and hiding different parts of the form using JavaScript or simply HTML and CSS.-->
+<!--3. Include validation for each step to ensure that the user has filled out the necessary fields before proceeding.-->
+<!--4. Summarize all entered information on a final confirmation page.-->
+<!--Bonus: add progressive enhancements like autocomplete suggestions, tooltips, or dynamically loaded options based on previous inputs-->
+
+<!--FINISHED, but need to figure out how the JavaScript functions work-->
+<!--Added class="tabcontent" to buttons to test if that hides next step areas without the JavaScript-->
+<!--Deleted JavaScript that Copilot added, & added only HTML & CSS to show/hide steps-->

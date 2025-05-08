@@ -1,0 +1,116 @@
+<!--Week 2, Assignment 1: ADVANCED CONTACT FORM-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Contact Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        .header {
+            font-family: fantasy;
+            font-weight: bold;
+            font-size: 28px;
+            text-align: center;
+            color: rgb(9, 110, 102);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.671);
+        }
+        .form {
+            font-family: fantasy;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            width: 75%;
+            margin: 0 auto;
+            padding: 10px;
+            border: 3px solid rgb(9, 110, 102);
+            border-radius: 10px;
+        }
+        .border {
+            border: 3px solid rgb(9, 110, 102);
+            border-radius: 10px;
+            width: 75%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>    
+    <h1 class="header">Week 2 Assignment 1</h1>
+        <form action="file:///C:/Users/Daniel%20Wade/OneDrive%20-%20francistuttle.edu/School%20Work/Francis-Turtle-Assignments/Week%202%20Assignment%201.php" method="post">
+            <fieldset class="border">
+                <legend class="form">Advanced Contact Form</legend>
+                    <label for="name">Type the most common thing you've been called:</label>
+                    <br>
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <br><br>
+                    <label for="email">Type your electronic mail username:</label>
+                    <br>
+                    <input type="text" id="email" name="email" placeholder="Email" required>
+                    <br><br>
+                    <label for="phone">Type the numbers that can be dialed to reach your primary electronic voice calling device:
+                        <br>
+                        <i>(Must be in format 000-000-0000)</i>
+                    </label>
+                    <br>
+                    <input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" min="0000000000" max="9999999999" required>
+                    <br><br>
+                    <label for="date">Input the day of the month of the year of today:</label>
+                    <br>
+                    <input type="date" id="date" name="date" placeholder="Date" min="2025-02-25" required>
+                    <br><br>
+                    <label for="birthday">Input the day of the month of the year of your birth:</label>
+                    <br>
+                    <input type="date" id="birthday" name="birthday" placeholder="Birthday" min="1910-01-01" max="2025-02-25" required>
+                    <br>
+                    <p>Please, select one option from the following list:</p>
+                        <input type="radio" id="Option A" name="radio_choice" value="Option A">
+                        <label for="Option A">Select Option A</label>
+                        <br>
+                        <input type="radio" id="Option B" name="radio_choice" value="Option B">
+                        <label for="Option B">No, select option B</label>
+                        <br>
+                        <input type="radio" id="Option C" name="radio_choice" value="Option C">
+                        <label for="Option C">No, option C!</label>
+                        <br>
+                        <input type="radio" id="Option D" name="radio_choice" value="Option D">
+                        <label for="Option D">No, option D!!  Unless you want another option...</label>
+                    <br><br>
+                    <label for="select">Select one of the options in this list, for a surprise.  Just try more than one, I dare you:</label>
+                    <br>
+                    <select id="select" name="select">
+                        <option value="Option 1">Option 1</option>
+                        <option value="Option 2">Option 2</option>
+                        <option value="Option 3">Option 3</option>
+                        <option value="Option 4">Option 4</option>
+                        <option value="Option 5">Option 5</option>
+                    </select>
+                    <br><br>
+                    <p>Check an option below that best describes you:</p>
+                    <label for="think"><input type="checkbox" id="think" name="action_checkbox" value="think">Think</label>
+                    <label for="overthink"><input type="checkbox" id="overthink" name="action_checkbox" value="overthink">Overthink</label>
+                    <label for="talk"><input type="checkbox" id="talk" name="action_checkbox" value="talk">Talk</label>
+                    <label for="do"><input type="checkbox" id="do" name="action_checkbox" value="do">Do</label>
+                    <br><br>
+                    <textarea id="textarea" placeholder="You want to type some stuff here, don't you?"></textarea>
+                        <label for="textarea" position="center">Type any questions/concerns/comments about life that you have, in a box to the left.</label>
+                        <br><br>
+                    <label for="file">Press the button to upload a file:</label>
+                    <input type="file" id="file" name="file">
+                    <br><br><hr><br>
+                    <label for="Submit button">Press this button, to submit yourself to me, heathen commoner:</label>
+                    <button type="button" id="Submit Button">Submit</button>
+            </fieldset>
+        </form>    
+</body>
+</html>
+
+<!--
+    1. Create an HTML form that includes various types of input fields such as text, email, number, date, radio buttons, checkboxes, and dropdowns using the <select> and <option> tags.
+    2. Add labels to each input field using the <label> tag and organize the form with <fieldset> and <legend>.
+    3. Implement client-side validation using the required, pattern, min, max, and other validation attributes.
+    4. Include a file upload field using <input type="file">.
+    5. BONUS: Style the form using CSS to enhance the visual appeal.
+-->
+    
+<!--FINISHED-->

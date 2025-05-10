@@ -1,0 +1,190 @@
+<!--Week 8 Assigment: BUILDING A COMPLETE WEBSITE-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Week 7 Assignment 1</title>
+    <meta name="description" content="This is my Francis Turtle Week 7 1st Assignment."> 
+    <meta name="keywords" content="school work, homework, web development, HTML, CSS, coding"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    </style>
+</head>
+
+<body>
+
+</body>
+
+<!--
+1. Planning and Design:
+- Identify & define the purpose, goals, target audience, and content strategy for the website.
+- Create a sitemap to outline the structure
+- Sketch wireframes for key pages & design mockups for each page.
+- Choose a color scheme and typography
+- Plan the navigation structure, considering user flow and ease of access.
+
+2. Setting Up the Project:
+
+project-folder/
+│
+├── index.html
+├── about.html
+├── services.html
+├── contact.html
+│
+├── css/
+│   ├── style.css
+│   └── responsive.css
+│
+├── js/
+│   └── main.js
+│
+└── images/
+    ├── logo.png
+    └── other-images.jpg
+
+HTML Structure:
+- Develop the HTML structure for each page, using semantic elements like headers, footers, sections, articles, etc.
+- Include multimedia elements like images and videos where appropriate.
+- Ensure that forms, tables, and other complex elements are properly constructed.
+
+Creating the HTML Structure
+Start with a basic HTML5 structure for index.html:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Name</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header>
+        <nav>
+            /* Navigation menu items */
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            /* Hero section content */
+        </section>
+
+        <section id="features">
+            /* Features section content */
+        </section>
+
+        <section id="about">
+            /* About section content */
+        </section>
+    </main>
+
+    <footer>
+        /* Footer content */
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+3. CSS Styling:
+- Create a cohesive and attractive design using CSS.
+- Implement a responsive layout using media queries, flexbox, or CSS grid.
+- Pay attention to details like typography, color scheme, spacing, and alignment.
+
+In your style.css file, start with a CSS reset and then add your custom styles:
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+}
+
+/* Add more custom styles for other elements */
+
+4. Responsive Web Design:
+- Ensure that the site adapts to different screen sizes and orientations.
+- Test the layout on various devices, including mobile phones, tablets, and desktops.
+- Consider using a mobile-first approach.
+
+In your responsive.css file, add media queries for different screen sizes:
+
+/* For tablets */
+@media(max-width: 768px) {
+    header #branding,
+    header nav,
+    header nav li {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* For mobile phones */
+@media(max-width: 500px) {
+    /* Add mobile-specific styles */
+}
+
+5. Accessibility and Usability:
+- Implement accessibility best practices, such as proper use of ARIA attributes and ensuring keyboard navigation.
+- Use alt attributes for images and provide clear, intuitive navigation.
+
+6. Adding Interactivity with JavaScript
+In your main.js file, add some basic interactivity:
+
+// Example: Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+/
+
+7. Testing & Optimization/Validation:
+- Test the site in different browsers to ensure cross-browser compatibility.
+- Optimize images and minify CSS/JS files
+- Ensure the website is accessible
+- Check for any broken links or errors
+- Validate the HTML and CSS using online tools to ensure adherence to standards.
+
+8. Deployment:
+- Prepare the site for hosting, considering factors like file organization and linking.
+- Deploy the site to a web host or present it locally for evaluation.
+Choose a hosting provider and upload your files. Some popular options include:
+
+GitHub Pages (free for static sites)
+Netlify (free tier available)
+DigitalOcean (paid, more control)
+
+8. Documentation and Reflection:
+- Write a brief report or reflection on the development process, challenges faced, and lessons learned.
+- Optionally, present the project to peers or instructors, highlighting key aspects and decisions.
+
+9. Maintenance and Updates
+Regularly update content
+Monitor website performance
+Keep software and plugins up to date
+--> 

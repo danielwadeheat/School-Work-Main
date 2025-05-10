@@ -6,15 +6,120 @@
     <meta charset="UTF-8">
     <title>Week 7 Assignment 1</title>
     <meta name="description" content="This is my Francis Turtle Week 7 1st Assignment."> 
-    <meta name="keywords" content="school work, homework, web development, HTML, CSS, coding"> 
+    <meta name="keywords" content="school work, homework, web development, mobile-first, navigation menu, HTML, CSS, coding"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        }
+
+        /* Base styles */
+        nav {
+        background-color: #333;
+        color: white;
+        }
+
+        .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        }
+
+        .nav-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        }
+
+        .nav-toggle {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: block;
+        }
+
+        .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #444;
+        }
+
+        .nav-links a {
+        padding: 1rem;
+        color: white;
+        text-decoration: none;
+        transition: background 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+        background-color: #555;
+        }
+
+        .nav-links.show {
+        display: flex;
+        }
+
+        /* Desktop Styles */
+        @media screen and (min-width: 768px) {
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex !important;
+            flex-direction: row;
+            background-color: transparent;
+        }
+
+        .nav-links a {
+            padding: 0 1rem;
+        }
+        }
+
+        /* Smooth transition */
+        .nav-links {
+        transition: max-height 0.3s ease;
+        }
     </style>
 </head>
-
 <body>
 
+<nav role="navigation" aria-label="Main Navigation">
+  <div class="nav-container">
+    <div class="nav-logo">MySite</div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle menu">
+      &#9776; <!-- Hamburger Icon -->
+    </button>
+  </div>
+  <div class="nav-links" id="navMenu">
+    <a href="#home" role="menuitem">Home</a>
+    <a href="#about" role="menuitem">About</a>
+    <a href="#services" role="menuitem">Services</a>
+    <a href="#contact" role="menuitem">Contact</a>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('navMenu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+
+    // Accessibility toggle
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', !expanded);
+  });
+</script>
+
 </body>
+</html>
+
 
     <!--
 Objective: Introduce students to mobile-first design by creating a responsive navigation menu.

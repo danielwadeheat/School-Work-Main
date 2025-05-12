@@ -5,16 +5,196 @@
 <head>
     <meta charset="UTF-8">
     <title>Week 7 Assignment 1</title>
-    <meta name="description" content="This is my Francis Turtle Week 7 1st Assignment."> 
+    <meta name="description" content="This is my Francis Turtle Week 7 4st Assignment."> 
     <meta name="keywords" content="school work, homework, web development, HTML, CSS, coding"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .filter-box {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        @media screen and (max-width: 600px) {
+            table {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                display: block;
+                margin-bottom: 15px;
+            }
+
+            td {
+                display: block;
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                text-align: left;
+                font-weight: bold;
+            }
+        }
     </style>
 </head>
-
 <body>
 
+    <h1>Responsive Student Grades Table</h1>
+
+    <div class="filter-box">
+        <input type="text" id="filterInput" onkeyup="filterTable()" placeholder="Search for students, subjects, grades, or status...">
+    </div>
+
+    <div class="table-container">
+        <table id="gradesTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Student</th>
+                    <th onclick="sortTable(1)">Subject</th>
+                    <th onclick="sortTable(2)">Grade</th>
+                    <th onclick="sortTable(3)">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Student">Alice</td>
+                    <td data-label="Subject">Math</td>
+                    <td data-label="Grade">88</td>
+                    <td data-label="Status">Pass</td>
+                </tr>
+                <tr>
+                    <td data-label="Student">Bob</td>
+                    <td data-label="Subject">History</td>
+                    <td data-label="Grade">72</td>
+                    <td data-label="Status">Pass</td>
+                </tr>
+                <tr>
+                    <td data-label="Student">Charlie</td>
+                    <td data-label="Subject">Science</td>
+                    <td data-label="Grade">91</td>
+                    <td data-label="Status">Pass</td>
+                </tr>
+                <tr>
+                    <td data-label="Student">Diana</td>
+                    <td data-label="Subject">English</td>
+                    <td data-label="Grade">65</td>
+                    <td data-label="Status">Fail</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function sortTable(n) {
+            const table = document.getElementById("gradesTable");
+            let switching = true;
+            let dir = "asc";
+            let switchCount = 0;
+
+            while (switching) {
+                switching = false;
+                const rows = table.rows;
+                for (let i = 1; i < rows.length - 1; i++) {
+                    let shouldSwitch = false;
+                    const x = rows[i].getElementsByTagName("TD")[n];
+                    const y = rows[i + 1].getElementsByTagName("TD")[n];
+                    const xVal = isNaN(x.innerHTML) ? x.innerHTML.toLowerCase() : parseFloat(x.innerHTML);
+                    const yVal = isNaN(y.innerHTML) ? y.innerHTML.toLowerCase() : parseFloat(y.innerHTML);
+
+                    if ((dir === "asc" && xVal > yVal) || (dir === "desc" && xVal < yVal)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchCount++;
+                } else {
+                    if (switchCount === 0 && dir === "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+        function filterTable() {
+            const input = document.getElementById("filterInput");
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById("gradesTable");
+            const trs = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < trs.length; i++) {
+                const tds = trs[i].getElementsByTagName("td");
+                let rowText = "";
+                for (let j = 0; j < tds.length; j++) {
+                    rowText += tds[j].textContent.toLowerCase() + " ";
+                }
+                trs[i].style.display = rowText.includes(filter) ? "" : "none";
+            }
+        }
+    </script>
+
 </body>
+</html>
+
 
     <!--
 Objective: Challenge students to create a table that is readable and functional on both small and large screens.
@@ -24,3 +204,4 @@ Instructions:
 3. Focus on maintaining readability and usability across different devices.
 Bonus: Add interactivity like sorting or filtering that also works on all screen sizes.
     -->
+<!--FINISHED, but used AI for JavaScript, since I don't know it yet-->

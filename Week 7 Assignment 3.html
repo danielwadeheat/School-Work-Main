@@ -1,0 +1,96 @@
+<!--Week 7 Assigment 3: DESIGNING RESPONSIVE IMAGES AND MULTIMEDIA-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Week 7 Assignment 1</title>
+    <meta name="description" content="This is my Francis Turtle Week 7 3st Assignment."> 
+    <meta name="keywords" content="school work, homework, web development, HTML, CSS, coding"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .media-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        picture img, 
+        .responsive-img, 
+        iframe, 
+        video {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .svg-example {
+            width: 100px;
+            height: 100px;
+            fill: #4CAF50;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Responsive Multimedia Elements</h1>
+    <div class="media-container">
+
+        <!-- Responsive image using picture -->
+        <picture>
+            <source media="(max-width: 600px)" srcset="https://via.placeholder.com/300">
+            <source media="(min-width: 601px)" srcset="https://via.placeholder.com/800">
+            <img src="https://via.placeholder.com/600" alt="Placeholder image">
+        </picture>
+
+        <!-- Responsive video -->
+        <video controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Responsive iframe (YouTube embed) -->
+        <iframe 
+            src="https://www.youtube.com/embed/tgbNymZ7vqY" 
+            title="YouTube video"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+
+        <!-- Image with object-fit example -->
+        <img src="https://via.placeholder.com/500x300" class="responsive-img" style="height: 200px; object-fit: contain;" alt="Object-fit example">
+
+        <!-- SVG example -->
+        <svg class="svg-example" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" />
+        </svg>
+
+    </div>
+</body>
+</html>
+
+
+    <!--
+Objective: Teach students how to make images, videos, and other multimedia elements responsive.
+Instructions:
+1. Embed various multimedia elements in a webpage (e.g., images, videos, iframes).
+2. Use CSS and HTML techniques (like the picture element or CSS properties) to make these elements adapt to different screen sizes and resolutions.
+3. Experiment with the object-fit property to control how images scale within their containers.
+Bonus: Include SVG images and explore how they can be styled and manipulated with CSS.
+    -->
+<!-- FINISHED -->

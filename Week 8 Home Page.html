@@ -14,222 +14,57 @@
 
 <body>
 
-  <header>
-    <h1>Francis Turtle</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Projects</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>Hi, I'm Francis Turtle</h2>
-    <p>I'm a Front-End Developer</p>
-    <button>View My Work</button>
-  </section>
-
-  <section class="about">
-    <h3>About Me</h3>
-    <p>I'm a passionate front-end developer who loves building beautiful and responsive websites. I specialize in HTML, CSS, and JavaScript, and I’m learning new technologies every day.</p>
-  </section>
-
-  <section class="projects">
-    <h3>Projects</h3>
-    <div class="project-list">
-      <div class="project-card">
-        <h4>Project 1</h4>
-        <p>A short description of your project.</p>
-      </div>
-      <div class="project-card">
-        <h4>Project 2</h4>
-        <p>A short description of your project.</p>
-      </div>
-      <div class="project-card">
-        <h4>Project 3</h4>
-        <p>A short description of your project.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Francis Turtle. All rights reserved.</p>
-  </footer>
-
-</body>
-</html>
-
-
-<!--
-1. Planning and Design:
-- Identify & define the purpose, goals, target audience, and content strategy for the website.
-- Create a sitemap to outline the structure
-- Plan the navigation structure, considering user flow and ease of access.
-- Choose a color scheme and typography
-- Sketch wireframes for key pages & design mockups for each other page.
-
-2. Setting Up the Project:
-
-project-folder/
-│
-├── index.html
-├── about.html
-├── services.html
-├── contact.html
-│
-├── css/
-│   ├── style.css
-│   └── responsive.css
-│
-├── js/
-│   └── main.js
-│
-└── images/
-    ├── logo.png
-    └── other-images.jpg
-
-HTML Structure:
-- Develop the HTML structure for each page, using semantic elements like headers, footers, sections, articles, etc.
-- Include multimedia elements like images and videos where appropriate.
-- Ensure that forms, tables, and other complex elements are properly constructed.
-
-Creating the HTML Structure
-Start with a basic HTML5 structure for index.html:
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Name</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
     <header>
+        <h1>Francis Turtle</h1>
         <nav>
-            /* Navigation menu items */
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Projects</a>
+            <a href="#">Resume</a>
+            <a href="#">Contact</a>
         </nav>
     </header>
 
-    <main>
-        <section id="hero">
-            /* Hero section content */
-        </section>
+<section class="hero">
+  <article class="hero-content">
+    <section class="hero-text">
+      <h2>Hi, I'm Daniel Wade Heatherly</h2>
+      <p>Front-End Web Developer</p>
+      <button>View My Work</button>
+    </section>
+    <figure class="hero-image">
+      <img src="images/daniel-headshot.jpg" alt="Headshot of Daniel Wade Heatherly">
+    </figure>
+  </article>
+</section>
 
-        <section id="features">
-            /* Features section content */
-        </section>
 
-        <section id="about">
-            /* About section content */
-        </section>
-    </main>
+    <section class="about">
+        <h3>About Me</h3>
+        <p>I'm a passionate front-end developer who loves building beautiful and responsive websites. I specialize in HTML and CSS, but I am learning new technologies every day, such as JavaScript currently.</p>
+    </section>
+
+    <section class="projects">
+        <h3>Projects</h3>
+        <div class="project-list">
+            <div class="project-card">
+                <h4>Project 1</h4>
+                <p>A short description of my project 1.</p>
+            </div>
+            <div class="project-card">
+                <h4>Project 2</h4>
+                <p>A short description of my project 2.</p>
+            </div>
+            <div class="project-card">
+                <h4>Project 3</h4>
+                <p>A short description of my project 3.</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        /* Footer content */
+        <small>© 2025 Francis Turtle. All rights reserved.</small>
     </footer>
 
-    <script src="js/main.js"></script>
 </body>
 </html>
-
-3. CSS Styling:
-- Create a cohesive and attractive design using CSS.
-- Implement a responsive layout using media queries, flexbox, or CSS grid.
-- Pay attention to details like typography, color scheme, spacing, and alignment.
-
-In your style.css file, start with a CSS reset and then add your custom styles:
-
-/* CSS Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-}
-
-/* Header Styles */
-header {
-    background: #35424a;
-    color: #ffffff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #e8491d 3px solid;
-}
-
-/* Add more custom styles for other elements */
-
-4. Responsive Web Design:
-- Ensure that the site adapts to different screen sizes and orientations.
-- Test the layout on various devices, including mobile phones, tablets, and desktops.
-- Consider using a mobile-first approach.
-
-In your responsive.css file, add media queries for different screen sizes:
-
-/* For tablets */
-@media(max-width: 768px) {
-    header #branding,
-    header nav,
-    header nav li {
-        float: none;
-        text-align: center;
-        width: 100%;
-    }
-}
-
-/* For mobile phones */
-@media(max-width: 500px) {
-    /* Add mobile-specific styles */
-}
-
-5. Accessibility and Usability:
-- Implement accessibility best practices, such as proper use of ARIA attributes and ensuring keyboard navigation.
-- Use alt attributes for images and provide clear, intuitive navigation.
-
-6. Adding Interactivity with JavaScript [*for normal career flow & later JavaScript Course, but not THIS school project]:
-In your main.js file, add some basic interactivity:
-
-// Example: Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-/
-
-7. Testing & Optimization/Validation:
-- Test the site in different browsers to ensure cross-browser compatibility.
-- Optimize images and minify CSS/JS files
-- Ensure the website is accessible
-- Check for any broken links or errors
-- Validate the HTML and CSS using online tools to ensure adherence to standards.
-
-8. Deployment:
-- Prepare the site for hosting, considering factors like file organization and linking.
-- Deploy the site to a web host or present it locally for evaluation.
-Choose a hosting provider and upload your files. Some popular options include:
-
-GitHub Pages (free for static sites)
-Netlify (free tier available)
-DigitalOcean (paid, more control)
-
-9. Documentation and Reflection:
-- Write a brief report or reflection on the development process, challenges faced, and lessons learned.
-- Optionally, present the project to peers or instructors, highlighting key aspects and decisions.
-
-10. Maintenance and Updates [*for normal career flow, but not this school project]:
-Regularly update content
-Monitor website performance
-Keep software and plugins up to date
---> 

@@ -1,0 +1,65 @@
+/* Week 8 Responsiveness: BUILDING A COMPLETE WEBSITE */
+
+/* ==========================
+   Tablet Styles (min-width: 600px)
+   ========================== */
+
+@media (min-width: 600px) {
+  nav {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .hero {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .hero-image img {
+    margin-top: 0;
+    margin-left: 2rem;
+  }
+
+  .project-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .project-card {
+    flex: 1;
+  }
+}
+
+/* ==========================
+   Desktop Styles (min-width: 1024px)
+   ========================== */
+
+@media (min-width: 1024px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    text-align: left;
+  }
+
+  nav {
+    justify-content: flex-end;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+  }
+
+  .hero button {
+    font-size: 1.1rem;
+  }
+
+  .project-card {
+    margin: 0 1rem;
+  }
+}

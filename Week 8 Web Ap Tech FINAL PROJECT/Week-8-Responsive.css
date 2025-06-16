@@ -11,14 +11,14 @@
   }
 
   .hero {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .hero-image img {
-    margin-top: 0;
-    margin-left: 2rem;
+    margin-top: 1.5rem;
+    margin-left: 0;
   }
 
   .project-list {
@@ -43,8 +43,19 @@
     text-align: left;
   }
 
+  header h1 {
+    margin-left: 1rem;
+  }
+
   nav {
     justify-content: flex-end;
+    margin-right: 1rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .hero h2 {

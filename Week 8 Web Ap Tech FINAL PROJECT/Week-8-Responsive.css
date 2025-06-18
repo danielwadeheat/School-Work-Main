@@ -74,3 +74,26 @@
     margin: 0 1rem;
   }
 }
+
+/* Responsive: stack image and text on small screens */
+@media (max-width: 700px) {
+  .about-flex-row {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .diverse-skills-img {
+      max-width: 100%;
+  }
+  .biodiverse-img {
+    max-width: 100%;
+    order: 0;
+  }
+  .about-header-flex {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .about-video-space {
+    width: 100%;
+    min-height: 180px;
+  }
+}

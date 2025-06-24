@@ -396,3 +396,33 @@ footer {
     margin: 0 auto 1rem auto;
     padding-left: 1.2em;
 }
+
+/* Projects sections styles */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 1rem 0;
+}
+
+.project-preview {
+  display: block;
+  text-align: center;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 15px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.project-preview:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-preview img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

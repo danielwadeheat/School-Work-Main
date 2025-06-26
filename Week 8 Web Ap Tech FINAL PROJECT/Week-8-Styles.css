@@ -127,7 +127,7 @@ nav a {
 }
 
 .hero p {
-  font-size: 1rem;
+  font-size: rem;
 }
 
 .hero-btn {
@@ -187,12 +187,27 @@ nav a {
   width: 100%;
 }
 
+/* Remove/override other styles that conflict with section title styling */
+.about h3,
+.projects h3,
+#home-projects > h2,
+.resume-preview > h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+}
+
+/* Remove or comment out these older conflicting rules: */
+/*
 .about h3,
 .projects h3 {
   font-family: var(--font-heading);
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
+*/
 
 .project-list {
   display: flex;
@@ -367,34 +382,17 @@ footer {
 .resume-preview {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start; /* changed from center */
+    text-align: left;        /* ensure text is left-aligned */
     margin: 2rem auto;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
 }
 
-/* Center the list and link in Resume Preview */
-.resume-preview ul {
+.resume-preview > h3 {
     text-align: left;
-    display: inline-block;
-    margin: 0 auto 1rem auto;
-    padding-left: 1.2em;
-}
-
-/* Center Resume section on Resume Page */
-.resume {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 2rem auto;
-}
-
-/* Center the list and link in Resume section */
-.resume ul {
-    text-align: left;
-    display: inline-block;
-    margin: 0 auto 1rem auto;
-    padding-left: 1.2em;
+    width: 100%;
 }
 
 /* Projects sections styles */
@@ -426,3 +424,90 @@ footer {
   height: auto;
   border-radius: 8px;
 }
+
+/* Center and add padding to the featured projects preview on the home page */
+#home-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#home-projects > h2 {
+    text-align: left;
+    width: 100%;
+}
+
+/* Consistent left alignment for section titles, NO extra padding */
+.section-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    width: 100%;
+    box-sizing: border-box;
+    /* padding-left: 1.5rem;  <-- REMOVE THIS LINE */
+}
+
+/* Make sure all main sections use the same horizontal padding */
+#home-projects,
+.resume-preview,
+.about {
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Fix: Ensure #home-projects uses the same padding as other sections for title alignment */
+#home-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Remove extra padding reset that breaks alignment */
+#home-projects,
+.resume-preview,
+.about {
+    /* padding-left: 0;
+    padding-right: 0; */
+}
+
+/* Center the project preview buttons/cards in the grid */
+#home-projects .project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; /* center the previews */
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 1rem 0;
+    text-align: left;
+}
+
+/* Add to Week-8-Styles.css */
+.resume {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+}
+
+

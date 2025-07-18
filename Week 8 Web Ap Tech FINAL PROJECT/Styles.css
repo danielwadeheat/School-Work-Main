@@ -7,7 +7,7 @@
 :root {
   --primary-color: #004F4F;
   --accent-color: #89b389;
-  --background-color: #cecccc;
+  --background-color: url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png);
   --text-color: #1A1A1A;
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Roboto', sans-serif;
@@ -22,7 +22,7 @@
 body {
   margin: 0;
   font-family: var(--font-body);
-  background-color: var(--background-color);
+  background: var(--background-color);
   color: var(--text-color);
   display: flex;
   flex-direction: column;

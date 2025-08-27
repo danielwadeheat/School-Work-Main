@@ -54,20 +54,23 @@ main,
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem 1rem;
+  padding: 1.5rem .75rem;
 }
 
 header {
   background-color: var(--primary-color);
   color: white;
-  padding: 1rem;
+  padding: 0.5rem 0;         /* Reduce vertical padding */
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;      /* Center children horizontally */
+  align-items: center;
   text-align: center;
   justify-content: flex-end;
-  min-height: 120px;
+  min-height: 70px;           /* Reduce min-height */
+  position: sticky;      /* Add this line */
+  top: 0;                /* Add this line */
+  z-index: 100;          /* Ensure it stays above other content */
 }
 
 .header-inner {
@@ -75,17 +78,17 @@ header {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;      /* Change to row for horizontal layout */
-  align-items: center;      /* Vertically center logo and nav */
-  justify-content: space-between; /* Optional: space out logo and nav */
-  padding: 0.5em 1em;       /* Optional: add horizontal padding */
+  flex-direction: row;
+  align-items: center;        /* Vertically center logo and nav */
+  justify-content: space-between;
+  padding: 0.25em 1em;        /* Reduce vertical padding */
 }
 
 header img {
-  width: 75px;      /* Set desired width */
-  height: auto;     /* Maintain aspect ratio */
-  margin-bottom: 0.5em; /* Optional: spacing */
-  border-radius: 25%; /* Make it circular */
+  width: 60px;                /* Slightly smaller logo */
+  height: auto;
+  margin-bottom: 0;           /* Remove extra space below logo */
+  border-radius: 25%;
 }
 
 header h1 {
@@ -97,12 +100,12 @@ header h1 {
 /* Make nav take full width and align to bottom of bar */
 nav {
   display: flex;
-  flex-direction: row;      /* Change to row for horizontal menu */
-  gap: 1rem;                /* Space between buttons */
-  justify-content: center;  /* Center nav links horizontally */
-  align-items: flex-end;    /* Align nav links to bottom of header */
-  width: 100%;
-  margin-top: auto; /* Added this line to push nav bar to bottom */
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;        /* Vertically center nav links */
+  justify-content: center;
+  width: auto;
+  margin-top: 0;              /* Remove margin pushing nav down */
 }
 
 nav a {
@@ -144,7 +147,7 @@ header nav a:hover {
 
 .hero h2 {
   font-family: "Lobster", sans-serif;
-  font-size: 1.5rem;
+  font-size: 3rem;     /* Increase font size */
 }
 
 .hero p {

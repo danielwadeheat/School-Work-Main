@@ -64,10 +64,28 @@ header {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;      /* Center children horizontally */
   text-align: center;
-  justify-content: flex-end; /* Add this line */
-  min-height: 120px;         /* Optional: set a min height for header */
+  justify-content: flex-end;
+  min-height: 120px;
+}
+
+.header-inner {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;      /* Change to row for horizontal layout */
+  align-items: center;      /* Vertically center logo and nav */
+  justify-content: space-between; /* Optional: space out logo and nav */
+  padding: 0.5em 1em;       /* Optional: add horizontal padding */
+}
+
+header img {
+  width: 75px;      /* Set desired width */
+  height: auto;     /* Maintain aspect ratio */
+  margin-bottom: 0.5em; /* Optional: spacing */
+  border-radius: 25%; /* Make it circular */
 }
 
 header h1 {
@@ -76,13 +94,14 @@ header h1 {
   font-size: 4rem;
 }
 
-/* Make nav take full width and align to bottom */
+/* Make nav take full width and align to bottom of bar */
 nav {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-direction: row;      /* Change to row for horizontal menu */
+  gap: 1rem;                /* Space between buttons */
+  justify-content: center;  /* Center nav links horizontally */
+  align-items: flex-end;    /* Align nav links to bottom of header */
   width: 100%;
-  align-items: center;
   margin-top: auto; /* Added this line to push nav bar to bottom */
 }
 
@@ -91,7 +110,7 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: transform 0.5s ease;
+  transition: transform 0.75s ease;
 }
 
 header nav a:hover {
@@ -99,8 +118,8 @@ header nav a:hover {
     background-color: var(--accent-color);
     color: #222;
     border: 2px solid black;
-    border-radius: 4px;
-    padding: 0.25rem .5rem;
+    border-radius: 5px;
+    padding: 0.1rem .25rem;
 }
 
 .hero {
@@ -124,7 +143,7 @@ header nav a:hover {
 }
 
 .hero h2 {
-  font-family: var(--font-heading);
+  font-family: "Lobster", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -510,5 +529,7 @@ footer {
     padding: 2rem 1.5rem;
     box-sizing: border-box;
 }
+
+
 
 

@@ -89,6 +89,7 @@ header img {
   height: auto;
   margin-bottom: 0;           /* Remove extra space below logo */
   border-radius: 25%;
+  box-shadow: 0 0 4px 4px rgba(32, 32, 32, 0.527); /* Adds logo border shadow; 1 x axis (horizontal offset); 2 y axis (vertical offset); 3 blur radius; 4 spread radius. */
 }
 
 header h1 {

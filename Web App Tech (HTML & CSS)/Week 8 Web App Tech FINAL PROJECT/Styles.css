@@ -95,7 +95,7 @@ header img {
 header h1 {
   margin: 0.5rem 0;
   font-family: "Lobster", sans-serif;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 /* Make nav take full width and align to bottom of bar */
@@ -148,7 +148,7 @@ header nav a:hover {
 
 .hero h2 {
   font-family: "Lobster", sans-serif;
-  font-size: 3rem;     /* Increase font size */
+  font-size: 3.5rem;     /* Make font larger */
 }
 
 .hero p {
@@ -315,8 +315,13 @@ footer {
 }
 
 .about-header-flex h2 {
-    margin: 0;
-    flex: 1;
+  font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .about-video-space {

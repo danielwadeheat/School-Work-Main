@@ -149,6 +149,7 @@ header nav a:hover {
 .hero h2 {
   font-family: "Lobster", sans-serif;
   font-size: 3.5rem;     /* Make font larger */
+  text-align: center;
 }
 
 .hero p {
@@ -228,16 +229,6 @@ header nav a:hover {
     font-family: var(--font-heading);
 }
 
-/* Remove or comment out these older conflicting rules: */
-/*
-.about h3,
-.projects h3 {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
-*/
-
 .project-list {
   display: flex;
   flex-direction: column;
@@ -310,18 +301,19 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 2em;
-    margin-bottom: 1.5em;
+    gap: .25rem;
+    margin-bottom: 0; /* Reduced from 1.5em */
 }
 
 .about-header-flex h2 {
   font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
   font-size: 3rem;
   font-weight: 400;
-  letter-spacing: 1px;
+  letter-spacing: .1rem;
   text-align: center;
   width: 100%;
-  margin: 0 auto;
+  margin: 0.5em 0; /* Reduced from 1rem 0 */
+  margin-bottom: 0;
 }
 
 .about-video-space {
@@ -370,8 +362,12 @@ footer {
 }
 
 .contact h2 {
-    text-align: center;
-    margin-top: 0;
+  font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: .1rem;
+  text-align: center;
+  margin: 1.5rem 0;
 }
 
 .contact form {
@@ -539,6 +535,21 @@ footer {
     box-sizing: border-box;
 }
 
+.projects h2 {
+  font-family: "Lobster", sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: .1rem;
+  text-align: center;
+  margin: 1rem 0;
+}
 
-
+.resume h2 {
+  font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: .1rem;
+  text-align: center;
+  margin: 0 0;
+}
 

@@ -58,10 +58,6 @@
     text-align: center;
   }
 
-  .hero h2 {
-    font-size: 2rem;
-  }
-
   .hero p {
     font-size: 1.25rem;
   }
@@ -90,7 +86,7 @@
   }
   .about-header-flex {
     flex-direction: column;
-    gap: 1em;
+    gap: .5em;
   }
   .about-video-space {
     width: 100%;

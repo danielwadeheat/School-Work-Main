@@ -305,16 +305,7 @@ footer {
     margin-bottom: 0; /* Reduced from 1.5em */
 }
 
-.about-header-flex h2 {
-  font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
-  font-size: 3rem;
-  font-weight: 400;
-  letter-spacing: .1rem;
-  text-align: center;
-  width: 100%;
-  margin: 0.5em 0; /* Reduced from 1rem 0 */
-  margin-bottom: 0;
-}
+
 
 .about-video-space {
     width: 320px;
@@ -361,14 +352,7 @@ footer {
     padding: 2rem 1rem;
 }
 
-.contact h2 {
-  font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
-  font-size: 3rem;
-  font-weight: 400;
-  letter-spacing: .1rem;
-  text-align: center;
-  margin: 1.5rem 0;
-}
+
 
 .contact form {
     display: flex;
@@ -527,12 +511,22 @@ footer {
     text-align: left;
 }
 
-/* Add to Week-8-Styles.css */
 .resume {
     max-width: 900px;
     margin: 2rem auto;
     padding: 2rem 1.5rem;
     box-sizing: border-box;
+}
+
+.about-header-flex h2 {
+  font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: .1rem;
+  text-align: center;
+  width: 100%;
+  margin: 2rem 0 0; 
+  margin-bottom: 0;
 }
 
 .projects h2 {
@@ -541,7 +535,7 @@ footer {
   font-weight: 400;
   letter-spacing: .1rem;
   text-align: center;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 .resume h2 {
@@ -550,6 +544,14 @@ footer {
   font-weight: 400;
   letter-spacing: .1rem;
   text-align: center;
-  margin: 0 0;
+  margin: 0 0 3.5rem;
 }
 
+.contact h2 {
+  font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: .1rem;
+  text-align: center;
+  margin: 1.5rem 0;
+}

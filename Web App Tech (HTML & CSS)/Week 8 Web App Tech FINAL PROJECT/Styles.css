@@ -4,6 +4,11 @@
    Base Styles (Mobile-First)
    ========================== */
 
+/* Add this at the very top of your CSS file */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
   --primary-color: #004F4F;
   --accent-color: #89b389;
@@ -11,11 +16,6 @@
   --text-color: #1A1A1A;
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Roboto', sans-serif;
-}
-
-/* Add this at the very top of your CSS file */
-*, *::before, *::after {
-  box-sizing: border-box;
 }
 
 /* Update body to prevent overflow and fit viewport */
@@ -110,16 +110,22 @@ nav {
 }
 
 nav a {
-  position: relative;    /* make anchor the ripple container */
-  overflow: hidden;      /* keep ripple contained inside link */
+  position: relative;         /* required for ripple positioning */
+  overflow: hidden;           /* keeps ripple inside the button */
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: transform 0.75s ease, background 0.3s;
-  z-index: 0; /* create stacking context */
+  padding: 0.5rem 1rem;      
+  border-radius: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+  background-color: var(--accent-color);  /* #89b389 */
+  color: #1A1A1A;
+  border: black 2px solid;
 }
 
 nav a .ripple {
@@ -127,26 +133,17 @@ nav a .ripple {
   border-radius: 50%;
   transform: scale(0);
   animation: ripple-animation 0.6s linear;
-  background: var(--accent-color);
+  background-color: rgba(137, 179, 137, 0.5); /* matches hover color */
   pointer-events: none;
-  opacity: 0.7;   /* semi-transparent for effect */
-  z-index: 1;     /* sit above background but below text */
+  z-index: 10;  /* above background but below text */
 }
+
 
 @keyframes ripple-animation {
   to {
-    transform: scale(2.5);
+    transform: scale(4);
     opacity: 0;
   }
-}
-
-header nav a:hover {
-    transform: scale(1.1);
-    background-color: var(--accent-color);
-    color: #222;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 0.1rem .25rem;
 }
 
 .hero {

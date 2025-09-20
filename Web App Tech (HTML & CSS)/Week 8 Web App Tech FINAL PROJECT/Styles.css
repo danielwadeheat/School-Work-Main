@@ -61,7 +61,7 @@ header {
   background-color: var(--primary-color);
   color: white;
   padding: 0.5rem 0;         /* Reduce vertical padding */
-  width: 100%;
+  width: 100%;              /* Ensure full width of viewport */  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,27 +84,17 @@ header {
   padding: 0.25em 1em;        /* Reduce vertical padding */
 }
 
-header img {
+header img {                  /* logo */
   width: 60px;                /* Slightly smaller logo */
   height: auto;
   margin-bottom: 0;           /* Remove extra space below logo */
   border-radius: 25%;
   box-shadow: 0 0 4px 4px rgba(32, 32, 32, 0.527); /* Adds logo border shadow; 1 x axis (horizontal offset); 2 y axis (vertical offset); 3 blur radius; 4 spread radius. */
 }
-
-header h1 {
-  margin: 0.5rem 0;
-  font-family: "Lobster", sans-serif;
-  font-size: 3rem;
-}
-
-/* Make nav take full width and align to bottom of bar */
 nav {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
-  align-items: center;        /* Vertically center nav links */
-  justify-content: center;
+  gap: 1rem;   
   width: auto;
   margin-top: 0;              /* Remove margin pushing nav down */
 }
@@ -126,6 +116,7 @@ nav a:hover {
   background-color: var(--accent-color);  /* #89b389 */
   color: #1A1A1A;
   border: black 2px solid;
+  z-index: 5;  /* above normal but below ripple */
 }
 
 nav a .ripple {
@@ -133,7 +124,7 @@ nav a .ripple {
   border-radius: 50%;
   transform: scale(0);
   animation: ripple-animation 0.6s linear;
-  background-color: rgba(137, 179, 137, 0.5); /* matches hover color */
+  background: rgba(137, 179, 137, 0.5); /* matches hover color */
   pointer-events: none;
   z-index: 10;  /* above background but below text */
 }
@@ -158,6 +149,7 @@ nav a .ripple {
   width: 200px;
   border-radius: 75%;
   margin-top: 1.5rem;
+  border: black 3px solid;
 }
 
 .hero h2,

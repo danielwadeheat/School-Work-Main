@@ -1,11 +1,10 @@
-// Ripple effect for nav links
 document.querySelectorAll('nav a').forEach(link => {
   link.addEventListener('click', function(e) {
     // Remove any existing ripple
     const oldRipple = this.querySelector('.ripple');
     if (oldRipple) oldRipple.remove();
 
-    // Get click position
+    // Get click position relative to the link
     const rect = this.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -13,9 +12,14 @@ document.querySelectorAll('nav a').forEach(link => {
     // Create ripple element
     const ripple = document.createElement('span');
     ripple.className = 'ripple';
+
+    // Set size (make it cover the whole button)
+    const size = Math.max(rect.width, rect.height) * 2;
+    ripple.style.width = ripple.style.height = `${size}px`;
+
+    // Set position (center the ripple at click)
     ripple.style.left = `${x}px`;
     ripple.style.top = `${y}px`;
-    ripple.style.width = ripple.style.height = `${Math.max(rect.width, rect.height)}px`;
 
     // Add ripple to link
     this.appendChild(ripple);
@@ -26,4 +30,3 @@ document.querySelectorAll('nav a').forEach(link => {
     });
   });
 });
-

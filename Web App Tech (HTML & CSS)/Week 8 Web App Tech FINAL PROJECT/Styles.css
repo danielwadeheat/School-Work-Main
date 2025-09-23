@@ -4,6 +4,11 @@
    Base Styles (Mobile-First)
    ========================== */
 
+/* Add this at the very top of your CSS file */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
   --primary-color: #004F4F;
   --accent-color: #89b389;
@@ -11,11 +16,6 @@
   --text-color: #1A1A1A;
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Roboto', sans-serif;
-}
-
-/* Add this at the very top of your CSS file */
-*, *::before, *::after {
-  box-sizing: border-box;
 }
 
 /* Update body to prevent overflow and fit viewport */
@@ -61,7 +61,7 @@ header {
   background-color: var(--primary-color);
   color: white;
   padding: 0.5rem 0;         /* Reduce vertical padding */
-  width: 100%;
+  width: 100%;              /* Ensure full width of viewport */  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,13 +84,19 @@ header {
   padding: 0.25em 1em;        /* Reduce vertical padding */
 }
 
+<<<<<<< HEAD
 header img {
   width: 4rem;                /* Slightly smaller logo */
+=======
+header img {                  /* logo */
+  width: 60px;                /* Slightly smaller logo */
+>>>>>>> e9605144975d5c3a5a59a9f59fdc1cb35916b688
   height: auto;
   margin-bottom: 0;           /* Remove extra space below logo */
   border-radius: 25%;
   box-shadow: 0 0 4px 4px rgba(32, 32, 32, 0.527); /* Adds logo border shadow; 1 x axis (horizontal offset); 2 y axis (vertical offset); 3 blur radius; 4 spread radius. */
 }
+<<<<<<< HEAD
 
 nav {
   display: flex; /* Allows children to have flex properties like gap and be ordered horizontally on same line as logo */
@@ -110,33 +116,62 @@ nav a {
   font-weight: bold;
   transition: transform 0.75s ease, background 0.3s;
   z-index: 0; /* Create stacking context */
+=======
+nav {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;   
+  width: auto;
+  margin-top: 0;              /* Remove margin pushing nav down */
+}
+
+nav a {
+  position: relative;         /* required for ripple positioning */
+  overflow: hidden;           /* keeps ripple inside the button */
+  display: inline-flex;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.25rem .5rem; 
+  margin: 0 .5rem;     
+  border-radius: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+  background-color: var(--accent-color);  /* #89b389 */
+  color: #1A1A1A;
+  border: black 2px solid;
+  z-index: 5;  /* above normal but below ripple */
+>>>>>>> e9605144975d5c3a5a59a9f59fdc1cb35916b688
 }
 
 nav a .ripple {
   position: absolute;
   border-radius: 50%;
+<<<<<<< HEAD
   transform: scale(0);
   animation: ripple-animation 0.8s linear;
   background: #638163e5;
   pointer-events: none;
   opacity: 0.75;   /* semi-transparent for effect */
   z-index: 1;     /* sit above background but below text */
+=======
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0.5;
+  animation: ripple-animation 0.8s linear;
+  background: rgba(37, 139, 37, 0.4);
+  pointer-events: none;
+  z-index: 10;
+>>>>>>> e9605144975d5c3a5a59a9f59fdc1cb35916b688
 }
 
 @keyframes ripple-animation {
   to {
-    transform: scale(2.5);
+    transform: translate(-50%, -50%) scale(4);
     opacity: 0;
   }
-}
-
-header nav a:hover {
-    transform: scale(1.1);
-    background-color: var(--accent-color);
-    color: #222;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 0.1rem .25rem;
 }
 
 .hero {
@@ -151,6 +186,7 @@ header nav a:hover {
   width: 200px;
   border-radius: 75%;
   margin-top: 1.5rem;
+  border: black 3px solid;
 }
 
 .hero h2,

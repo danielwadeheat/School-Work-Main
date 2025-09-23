@@ -74,10 +74,10 @@ header {
 }
 
 .header-inner {
-  max-width: 900px;
+  display: flex;
+  max-width: 60rem;
   width: 100%;
   margin: 0 auto;
-  display: flex;
   flex-direction: row;
   align-items: center;        /* Vertically center logo and nav */
   justify-content: space-between;
@@ -85,51 +85,41 @@ header {
 }
 
 header img {
-  width: 60px;                /* Slightly smaller logo */
+  width: 4rem;                /* Slightly smaller logo */
   height: auto;
   margin-bottom: 0;           /* Remove extra space below logo */
   border-radius: 25%;
   box-shadow: 0 0 4px 4px rgba(32, 32, 32, 0.527); /* Adds logo border shadow; 1 x axis (horizontal offset); 2 y axis (vertical offset); 3 blur radius; 4 spread radius. */
 }
 
-header h1 {
-  margin: 0.5rem 0;
-  font-family: "Lobster", sans-serif;
-  font-size: 3rem;
-}
-
-/* Make nav take full width and align to bottom of bar */
 nav {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  display: flex; /* Allows children to have flex properties like gap and be ordered horizontally on same line as logo */
   align-items: center;        /* Vertically center nav links */
-  justify-content: center;
-  width: auto;
-  margin-top: 0;              /* Remove margin pushing nav down */
+  margin: 0 auto;              /* Remove margin pushing nav down */
 }
 
 nav a {
-  position: relative;    /* make anchor the ripple container */
-  overflow: hidden;      /* keep ripple contained inside link */
-  display: inline-flex;
+  display: flex;
+  position: relative;    /* Make anchor the ripple container */
+  overflow: hidden;      /* Keep ripple contained inside link */
+  margin: 0 1rem;
   align-items: center;
   justify-content: center;
   color: white;
   text-decoration: none;
   font-weight: bold;
   transition: transform 0.75s ease, background 0.3s;
-  z-index: 0; /* create stacking context */
+  z-index: 0; /* Create stacking context */
 }
 
 nav a .ripple {
   position: absolute;
   border-radius: 50%;
   transform: scale(0);
-  animation: ripple-animation 0.6s linear;
-  background: var(--accent-color);
+  animation: ripple-animation 0.8s linear;
+  background: #638163e5;
   pointer-events: none;
-  opacity: 0.7;   /* semi-transparent for effect */
+  opacity: 0.75;   /* semi-transparent for effect */
   z-index: 1;     /* sit above background but below text */
 }
 

@@ -100,7 +100,7 @@ nav {
 }
 
 nav a {
-  display: inline-flex;
+  display: flex;
   position: relative;    /* Make anchor the ripple container */
   overflow: hidden;      /* Keep ripple contained inside link */
   margin: 0 1rem;

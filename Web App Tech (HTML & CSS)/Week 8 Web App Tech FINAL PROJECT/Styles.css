@@ -123,24 +123,6 @@ nav a:hover {
   z-index: 5;  /* above normal but below ripple */
 }
 
-nav a .ripple {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.75;   /* semi-transparent for effect */
-  transform: translate(-50%, -50%) scale(0);
-  animation: ripple-animation 0.8s linear;
-  background: rgba(37, 139, 37, 0.4);
-  pointer-events: none;
-  z-index: 10;
-}
-
-@keyframes ripple-animation {
-  to {
-    transform: translate(-50%, -50%) scale(4);
-    opacity: 0;
-  }
-}
-
 .hero {
   padding: 2rem;
   display: flex;

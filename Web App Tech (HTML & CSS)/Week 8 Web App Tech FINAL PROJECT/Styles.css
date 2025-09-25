@@ -129,9 +129,10 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  display: none;   /* hidden until triggered */
-  z-index: 9999;   /* above everything */
-  background: black;
+  display: none;        /* hidden until triggered */
+  z-index: 9999;        /* on top of content */
+  pointer-events: none; /* allow clicks through canvas */
+  background: transparent; /* no black background */
 }
 
 .hero {

@@ -1,26 +1,36 @@
+// ======= MATRIX EFFECT SETUP =======
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
+// Resize canvas
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
 resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener("resize", () => {
+  resizeCanvas();
+  resetDrops();
+});
 
+// Characters for Matrix rain
 const letters = "アァイィウヴエェオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン".split("");
 
+// Font settings
 const fontSize = 14;
 let drops;
+
+// Initialize drops based on canvas width
 function resetDrops() {
   const columns = canvas.width / fontSize;
   drops = Array.from({ length: columns }).fill(1);
 }
 resetDrops();
-window.addEventListener("resize", resetDrops);
 
+// Animation variables
 let animationId;
 
+// Draw Matrix rain
 function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -37,25 +47,44 @@ function draw() {
     }
     drops[i]++;
   }
+
   animationId = requestAnimationFrame(draw);
 }
 
-// Attach effect to all nav links
+// ======= NAV LINK TRIGGER =======
 document.querySelectorAll("header nav a").forEach(link => {
   link.addEventListener("click", function(e) {
-    e.preventDefault(); // stop immediate navigation
+    e.preventDefault();
     const targetUrl = this.getAttribute("href");
 
     // Show canvas + start animation
     canvas.style.display = "block";
     draw();
 
-    // After 1.5s, stop animation and navigate
+    // Flag to continue effect on next page
+    sessionStorage.setItem("matrixEffect", "true");
+
+    // Delay before navigating
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 1500); // 1.5 seconds before navigation
+  });
+});
+
+// ======= CONTINUE EFFECT ON PAGE LOAD =======
+window.addEventListener("load", () => {
+  if (sessionStorage.getItem("matrixEffect") === "true") {
+    canvas.style.display = "block";
+    draw();
+
+    // Remove the flag
+    sessionStorage.removeItem("matrixEffect");
+
+    // Stop after 1 second lingering
     setTimeout(() => {
       cancelAnimationFrame(animationId);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       canvas.style.display = "none";
-      window.location.href = targetUrl; // now navigate
-    }, 1500);
-  });
+    }, 1000); // 1 second lingering
+  }
 });

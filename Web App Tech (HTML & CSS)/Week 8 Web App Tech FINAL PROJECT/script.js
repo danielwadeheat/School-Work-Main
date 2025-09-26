@@ -82,9 +82,14 @@ window.addEventListener("load", () => {
 
     // Stop after 1 second lingering
     setTimeout(() => {
-      cancelAnimationFrame(animationId);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      canvas.style.display = "none";
+      // Fade out the canvas
+      canvas.style.opacity = "0";
+      setTimeout(() => {
+        cancelAnimationFrame(animationId);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.style.display = "none";
+        canvas.style.opacity = "1"; // Reset for next time
+      }, 600); // Match the CSS transition duration
     }, 1000); // 1 second lingering
   }
 });

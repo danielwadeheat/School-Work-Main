@@ -93,3 +93,33 @@ window.addEventListener("load", () => {
     }, 1000); // 1 second lingering
   }
 });
+
+// ======= POWERGLITCH SETUP =======
+const hero = document.querySelector(".hero-image");
+
+// Configure glitch
+const glitch = PowerGlitch.glitch(hero, {
+  playMode: "hover", // Only shows on hover
+  createContainers: true,
+  hideOverflow: false, // Allow overflow
+  timing: {
+    duration: 4000, // long (4s)
+    iterations: 1,  // run once per hover
+  },
+  glitchTimeSpan: {
+    start: 0.1,
+    end: 0.9,
+  },
+  shake: {
+    velocity: 15, // slower & laggier
+    amplitudeX: 0.2,
+    amplitudeY: 0.2,
+  },
+  slice: {
+    count: 10, // more slices
+    velocity: 8, // slower movement
+    minHeight: 0.05,
+    maxHeight: 0.15,
+    hueRotate: true,
+  },
+});

@@ -124,7 +124,7 @@ nav a:hover {
   z-index: 5;  /* above normal but below ripple */
 }
 
-#matrix {
+#matrix {  /* matrix code rain on nav button click */
   position: fixed;
   top: 0;
   left: 0;
@@ -147,11 +147,50 @@ nav a:hover {
   text-align: center;
 }
 
+.hero-image {
+  position: relative; /* so SVG & canvas can be positioned absolutely inside */
+  display: inline-block;
+  cursor: pointer;
+}
+
 .hero-image img {
   width: 200px;
   border-radius: 75%;
   margin-top: 1.5rem;
   border: black 3px solid;
+}
+
+/* Shades styling */
+.shades {
+  position: absolute;
+  top: 35%;   /* adjust to align with eyes */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 60px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.hero-image.active .shades {
+  opacity: 1;
+}
+
+/* Matrix shades reflection canvas */
+#shadesCanvas {
+  position: absolute;
+  top: 35%;   /* align with shades */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 60px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-image.active #shadesCanvas {
+  opacity: 0.8; /* subtle glow */
 }
 
 .hero h2,

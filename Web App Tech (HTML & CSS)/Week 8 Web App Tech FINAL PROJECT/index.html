@@ -32,15 +32,30 @@
         </div>
     </header>
 
-    <section class="hero">
-        <figure class="hero-image">
-            <img src="images/headshot.jpg" alt="Headshot of Daniel Wade Heatherly">
-        </figure>        
-        <h2>Hey, I'm Daniel Wade Heatherly</h2>
-        <p>Front-End Web Developer</p>
-        <a href="projects-page.html" class="hero-btn">View My Work</a>
+    <section class="hero"> 
+    <figure class="hero-image">
+        <img src="images/headshot.jpg" alt="Headshot of Daniel Wade Heatherly">
+        
+        <!-- Neo Shades (frameless lenses) -->
+        <svg class="shades" viewBox="0 0 400 120">
+        <!-- Left lens -->
+        <ellipse cx="120" cy="60" rx="90" ry="40" fill="rgba(0,0,0,0.7)" stroke="black" stroke-width="4"/>
+        <!-- Right lens -->
+        <ellipse cx="280" cy="60" rx="90" ry="40" fill="rgba(0,0,0,0.7)" stroke="black" stroke-width="4"/>
+        <!-- Nose bridge -->
+        <rect x="190" y="55" width="20" height="10" fill="black" />
+        </svg>
 
+        <!-- Canvas for lens reflection -->
+        <canvas id="shadesCanvas" width="200" height="60"></canvas>
+
+    </figure>        
+
+    <h2>Hey, I'm Daniel Wade Heatherly</h2>
+    <p>Front-End Web Developer</p>
+    <a href="projects-page.html" class="hero-btn">View My Work</a>
     </section>
+
 
 
     <section class="about">

@@ -123,3 +123,50 @@ const glitch = PowerGlitch.glitch(hero, {
     hueRotate: true,
   },
 });
+
+// ======= NEO SHADES + MINI REFLECTION (CLICK TO TOGGLE) =======
+const heroImage = document.querySelector(".hero-image");
+const shadesCanvas = document.getElementById("shadesCanvas");
+const shadesCtx = shadesCanvas.getContext("2d");
+
+// Matrix-like characters
+const shadesSymbols = "01{}();<>=+- React.useEffect const let return";
+const shadesFontSize = 12;
+const shadesColumns = Math.floor(shadesCanvas.width / shadesFontSize);
+let shadesYpos = Array(shadesColumns).fill(0);
+let shadesAnimFrame;
+let shadesActive = false; // track toggle state
+
+function drawShadesReflection() {
+  shadesCtx.fillStyle = "rgba(0,0,0,0.2)";
+  shadesCtx.fillRect(0, 0, shadesCanvas.width, shadesCanvas.height);
+
+  shadesCtx.fillStyle = "#0F0";
+  shadesCtx.font = shadesFontSize + "px monospace";
+
+  for (let i = 0; i < shadesColumns; i++) {
+    const char = shadesSymbols[Math.floor(Math.random() * shadesSymbols.length)];
+    shadesCtx.fillText(char, i * shadesFontSize, shadesYpos[i] * shadesFontSize);
+
+    if (shadesYpos[i] * shadesFontSize > shadesCanvas.height && Math.random() > 0.975) {
+      shadesYpos[i] = 0;
+    }
+    shadesYpos[i]++;
+  }
+
+  shadesAnimFrame = requestAnimationFrame(drawShadesReflection);
+}
+
+// Toggle shades on click
+heroImage.addEventListener("click", () => {
+  shadesActive = !shadesActive;
+
+  if (shadesActive) {
+    heroImage.classList.add("active");
+    drawShadesReflection();
+  } else {
+    heroImage.classList.remove("active");
+    cancelAnimationFrame(shadesAnimFrame);
+    shadesCtx.clearRect(0, 0, shadesCanvas.width, shadesCanvas.height);
+  }
+});

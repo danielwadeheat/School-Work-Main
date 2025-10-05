@@ -301,12 +301,37 @@ nav a:hover {
 }
 
 footer {
+  display: flex;                 
+  justify-content: center; /* centers items together in row */
+  align-items: center; /* vertically align items */
+  gap: 1rem; /* space between left and right sections */  
   padding: 1rem;
-  text-align: center;
   font-size: 0.875rem;
   color: #888;
   width: 100%;
 }
+
+.footer-left {
+  flex: 1; /* keeps it on the left */
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between Contact and LinkedIn icon */
+}
+
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.linkedin-icon {
+  width: 20px; /* the size of a tiny icon */
+  height: 20px;
+  fill: #0A66C2; /* LinkedIn blue if using inline SVG */
+}
+
 
 /* Make images responsive and not wider than text/content */
 .about img {
@@ -626,4 +651,3 @@ footer {
 .about p {
   text-indent: 2em; /* Indents the first line of each paragraph */
 }
-

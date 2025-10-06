@@ -163,7 +163,6 @@ nav a:hover {
 /* Shades styling */
 .shades {
   position: absolute;
-  top: 35%;   /* adjust to align with eyes */
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
@@ -173,20 +172,30 @@ nav a:hover {
   pointer-events: none;
 }
 
-.hero-image.active .shades {
-  opacity: 1;
-}
-
 /* Matrix shades reflection canvas */
 #shadesCanvas {
   position: absolute;
-  top: 35%;   /* align with shades */
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
+  width: 130px;
   height: 60px;
   opacity: 0;
   pointer-events: none;
+}
+
+.shades,
+.hero-image #shadesCanvas {
+  width: 140px;        /* smaller width */
+  height: 40px;        /* smaller height */
+  top: 44%;            /* tweak to align with eyes */
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 18px; /* keeps the oval look */
+  overflow: hidden;    /* keeps the matrix glare inside */
+}
+
+.hero-image.active .shades {
+  opacity: 1;
 }
 
 .hero-image.active #shadesCanvas {

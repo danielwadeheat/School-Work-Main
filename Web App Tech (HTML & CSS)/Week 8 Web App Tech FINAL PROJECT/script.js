@@ -127,7 +127,7 @@ const glitch = PowerGlitch.glitch(hero, {
 // ======= NEO SHADES + MINI REFLECTION (CLICK TO TOGGLE) =======
 const heroImage = document.querySelector(".hero-image");
 const shadesCanvas = document.getElementById("shadesCanvas");
-const shadesCtx = shadesCanvas.getContext("2d");
+const scx = shadesCanvas.getContext("2d");
 
 // Matrix-like characters
 const shadesSymbols = "01{}();<>=+- React.useEffect const let return";
@@ -137,16 +137,18 @@ let shadesYpos = Array(shadesColumns).fill(0);
 let shadesAnimFrame;
 let shadesActive = false; // track toggle state
 
-function drawShadesReflection() {
-  shadesCtx.fillStyle = "rgba(0,0,0,0.2)";
-  shadesCtx.fillRect(0, 0, shadesCanvas.width, shadesCanvas.height);
+function drawShadesMatrix() {
+  scx.clearRect(0,0,shadesCanvas.width, shadesCanvas.height);
 
-  shadesCtx.fillStyle = "#0F0";
-  shadesCtx.font = shadesFontSize + "px monospace";
+  scx.fillStyle = "rgba(0,0,0,0.2)";
+  scx.fillRect(0, 0, shadesCanvas.width, shadesCanvas.height);
+
+  scx.fillStyle = "#0F0";
+  scx.font = shadesFontSize + "px monospace";
 
   for (let i = 0; i < shadesColumns; i++) {
     const char = shadesSymbols[Math.floor(Math.random() * shadesSymbols.length)];
-    shadesCtx.fillText(char, i * shadesFontSize, shadesYpos[i] * shadesFontSize);
+    scx.fillText(char, i * shadesFontSize, shadesYpos[i] * shadesFontSize);
 
     if (shadesYpos[i] * shadesFontSize > shadesCanvas.height && Math.random() > 0.975) {
       shadesYpos[i] = 0;
@@ -154,7 +156,7 @@ function drawShadesReflection() {
     shadesYpos[i]++;
   }
 
-  shadesAnimFrame = requestAnimationFrame(drawShadesReflection);
+  shadesAnimFrame = requestAnimationFrame(drawShadesMatrix);
 }
 
 // Toggle shades on click
@@ -163,10 +165,45 @@ heroImage.addEventListener("click", () => {
 
   if (shadesActive) {
     heroImage.classList.add("active");
-    drawShadesReflection();
+    drawShadesMatrix();
   } else {
     heroImage.classList.remove("active");
     cancelAnimationFrame(shadesAnimFrame);
-    shadesCtx.clearRect(0, 0, shadesCanvas.width, shadesCanvas.height);
+    scx.clearRect(0, 0, shadesCanvas.width, shadesCanvas.height);
+  }
+});
+
+// ======= MINI LENS MATRIX (per-lens) =======
+function startLensMatrix(canvas) {
+  if (!canvas) return;
+  const ctxL = canvas.getContext('2d');
+  const fontSize = 12;
+  const cols = Math.floor(canvas.width / fontSize);
+  const drops = Array.from({ length: cols }, () => 1);
+
+  function drawLens() {
+    ctxL.fillStyle = "rgba(0,0,0,0.18)";
+    ctxL.fillRect(0,0,canvas.width,canvas.height);
+
+    ctxL.fillStyle = "#0F0";
+    ctxL.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const ch = letters[Math.floor(Math.random() * letters.length)];
+      ctxL.fillText(ch, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.965) drops[i] = 0;
+      drops[i]++;
+    }
+    requestAnimationFrame(drawLens);
+  }
+  drawLens();
+}
+
+window.addEventListener('load', () => {
+  const l = document.getElementById('lensLeft');
+  const r = document.getElementById('lensRight');
+  if (l && r) {
+    startLensMatrix(l);
+    startLensMatrix(r);
   }
 });

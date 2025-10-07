@@ -148,9 +148,57 @@ nav a:hover {
 }
 
 .hero-image {
-  position: relative; /* so SVG & canvas can be positioned absolutely inside */
+  position: relative;
   display: inline-block;
-  cursor: pointer;
+}
+
+/* Glasses container */
+.glasses {
+  position: absolute;
+  left: 50%;
+  top: 54%;                 /* adjust to align over eyes */
+  width: 260px;             /* matches SVG viewBox width */
+  height: 100px;            /* matches SVG viewBox height */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Lens clip areas (match ellipse rx/ry *2 for width/height) */
+.lens {
+  position: absolute;
+  width: 110px;             /* 2 * rx (55) */
+  height: 50px;             /* 2 * ry (25) */
+  top: 25px;                /* cy - ry => 50 - 25 */
+  overflow: hidden;
+  border-radius: 55px / 25px;
+  background: rgba(0,0,0,0.65);
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.7);
+}
+
+.lens-left { left: 25px; }  /* cx - rx => 80 - 55 */
+.lens-right { left: 125px; }/* 180 - 55 */
+
+.lens canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+}
+
+.shades-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+/* OPTIONAL: slight glow on glyphs */
+.lens canvas.glow { filter: drop-shadow(0 0 4px #0f0); }
+
+/* SVG frame overlays canvases */
+.shades-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
 .hero-image img {
@@ -160,38 +208,29 @@ nav a:hover {
   border: black 3px solid;
 }
 
-/* Shades styling */
-.shades {
+.shades-wrap {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 60px;
-  opacity: 0;
-  transition: opacity 0.6s ease;
+  top: 44%;              /* adjust until centered over eyes */
+  width: 120px;          /* adjust */
+  height: 40px;          /* adjust */
+  transform: translate(-50%, -50%);
+  border-radius: 20px;   /* pill shape; tweak for exact curve */
+  overflow: hidden;
   pointer-events: none;
 }
 
-/* Matrix shades reflection canvas */
-#shadesCanvas {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 130px;
-  height: 60px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.shades,
+.hero-image .shades,
 .hero-image #shadesCanvas {
-  width: 140px;        /* smaller width */
-  height: 40px;        /* smaller height */
+  position: absolute;
   top: 44%;            /* tweak to align with eyes */
-  left: 50%;
-  transform: translateX(-50%);
+  left: 50%;  
+  width: 100px;        /* smaller width */
+  height: 40px;        /* smaller height */
+  transform: translate(-50%, -50%);
   border-radius: 18px; /* keeps the oval look */
   overflow: hidden;    /* keeps the matrix glare inside */
+  pointer-events: none; /* so it doesn't block clicks */
 }
 
 .hero-image.active .shades {
@@ -199,6 +238,7 @@ nav a:hover {
 }
 
 .hero-image.active #shadesCanvas {
+  mix-blend-mode: screen;       /* optional effect */
   opacity: 0.8; /* subtle glow */
 }
 

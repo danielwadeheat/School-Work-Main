@@ -95,85 +95,55 @@ window.addEventListener("load", () => {
 });
 
 // ======= POWERGLITCH SETUP =======
-const hero = document.querySelector(".hero-image");
-
-// Configure glitch
-const glitch = PowerGlitch.glitch(hero, {
-  playMode: "hover", // Only shows on hover
-  createContainers: true,
-  hideOverflow: false, // Allow overflow
-  timing: {
-    duration: 4000, // long (4s)
-    iterations: 1,  // run once per hover
-  },
-  glitchTimeSpan: {
-    start: 0.1,
-    end: 0.9,
-  },
-  shake: {
-    velocity: 15, // slower & laggier
-    amplitudeX: 0.2,
-    amplitudeY: 0.2,
-  },
-  slice: {
-    count: 10, // more slices
-    velocity: 8, // slower movement
-    minHeight: 0.05,
-    maxHeight: 0.15,
-    hueRotate: true,
-  },
-});
-
-// ======= NEO SHADES + MINI REFLECTION (CLICK TO TOGGLE) =======
-const heroImage = document.querySelector(".hero-image");
-const shadesCanvas = document.getElementById("shadesCanvas");
-const scx = shadesCanvas.getContext("2d");
-
-// Matrix-like characters
-const shadesSymbols = "01{}();<>=+- React.useEffect const let return";
-const shadesFontSize = 12;
-const shadesColumns = Math.floor(shadesCanvas.width / shadesFontSize);
-let shadesYpos = Array(shadesColumns).fill(0);
-let shadesAnimFrame;
-let shadesActive = false; // track toggle state
-
-function drawShadesMatrix() {
-  scx.clearRect(0,0,shadesCanvas.width, shadesCanvas.height);
-
-  scx.fillStyle = "rgba(0,0,0,0.2)";
-  scx.fillRect(0, 0, shadesCanvas.width, shadesCanvas.height);
-
-  scx.fillStyle = "#0F0";
-  scx.font = shadesFontSize + "px monospace";
-
-  for (let i = 0; i < shadesColumns; i++) {
-    const char = shadesSymbols[Math.floor(Math.random() * shadesSymbols.length)];
-    scx.fillText(char, i * shadesFontSize, shadesYpos[i] * shadesFontSize);
-
-    if (shadesYpos[i] * shadesFontSize > shadesCanvas.height && Math.random() > 0.975) {
-      shadesYpos[i] = 0;
-    }
-    shadesYpos[i]++;
-  }
-
-  shadesAnimFrame = requestAnimationFrame(drawShadesMatrix);
+const heroEl = document.querySelector(".hero-image");
+if (heroEl && window.PowerGlitch) {
+  PowerGlitch.glitch(heroEl, {
+    playMode: "hover",
+    createContainers: true,
+    hideOverflow: false,
+    timing: { duration: 4000, iterations: 1 },
+    glitchTimeSpan: { start: 0.1, end: 0.9 },
+    shake: { velocity: 15, amplitudeX: 0.2, amplitudeY: 0.2 },
+    slice: { count: 10, velocity: 8, minHeight: 0.05, maxHeight: 0.15, hueRotate: true },
+  });
 }
 
-// Toggle shades on click
-heroImage.addEventListener("click", () => {
-  shadesActive = !shadesActive;
+// ======= REMOVE/SAFEGUARD OLD SINGLE-CANVAS BLOCK =======
+// Guard so missing #shadesCanvas doesn't crash the file
+const heroImage = document.querySelector(".hero-image");
+const shadesCanvas = document.getElementById("shadesCanvas");
+if (heroImage && shadesCanvas) {
+  const scx = shadesCanvas.getContext("2d");
+  const shadesSymbols = "01{}();<>=+- React.useEffect const let return";
+  const shadesFontSize = 12;
+  const shadesColumns = Math.floor(shadesCanvas.width / shadesFontSize);
+  let shadesYpos = Array(shadesColumns).fill(0);
+  let shadesAnimFrame;
+  let shadesActive = false;
 
-  if (shadesActive) {
-    heroImage.classList.add("active");
-    drawShadesMatrix();
-  } else {
-    heroImage.classList.remove("active");
-    cancelAnimationFrame(shadesAnimFrame);
-    scx.clearRect(0, 0, shadesCanvas.width, shadesCanvas.height);
+  function drawShadesMatrix() {
+    scx.clearRect(0,0,shadesCanvas.width, shadesCanvas.height);
+    scx.fillStyle = "rgba(9, 245, 29, 0.81)";
+    scx.fillRect(0, 0, shadesCanvas.width, shadesCanvas.height);
+    scx.fillStyle = "#0F0";
+    scx.font = shadesFontSize + "px monospace";
+    for (let i = 0; i < shadesColumns; i++) {
+      const char = shadesSymbols[Math.floor(Math.random() * shadesSymbols.length)];
+      scx.fillText(char, i * shadesFontSize, shadesYpos[i] * shadesFontSize);
+      if (shadesYpos[i] * shadesFontSize > shadesCanvas.height && Math.random() > 0.975) shadesYpos[i] = 0;
+      shadesYpos[i]++;
+    }
+    shadesAnimFrame = requestAnimationFrame(drawShadesMatrix);
   }
-});
 
-// ======= MINI LENS MATRIX (per-lens) =======
+  heroImage.addEventListener("click", () => {
+    shadesActive = !shadesActive;
+    if (shadesActive) { heroImage.classList.add("active"); drawShadesMatrix(); }
+    else { heroImage.classList.remove("active"); cancelAnimationFrame(shadesAnimFrame); scx.clearRect(0,0,shadesCanvas.width,shadesCanvas.height); }
+  });
+}
+
+// ======= MINI LENS MATRIX (per-lens) + REVEAL ON CLICK =======
 function startLensMatrix(canvas) {
   if (!canvas) return;
   const ctxL = canvas.getContext('2d');
@@ -182,28 +152,50 @@ function startLensMatrix(canvas) {
   const drops = Array.from({ length: cols }, () => 1);
 
   function drawLens() {
-    ctxL.fillStyle = "rgba(0,0,0,0.18)";
-    ctxL.fillRect(0,0,canvas.width,canvas.height);
+    // Dark trail, but not too heavy (preserves brightness)
+    ctxL.globalCompositeOperation = 'source-over';
+    ctxL.globalAlpha = 1;
+    ctxL.fillStyle = 'rgba(0,0,0,0.18)';
+    ctxL.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctxL.fillStyle = "#0F0";
-    ctxL.font = fontSize + "px monospace";
+    // Bright neon green, screen blend keeps the hue vivid on black
+    ctxL.globalCompositeOperation = 'screen';
+    ctxL.fillStyle = '#00ff7a';
+    ctxL.shadowColor = '#00ff66';
+    ctxL.shadowBlur = 2; // subtle glow; avoid big blur (tints lens)
+    ctxL.font = '900 ' + fontSize + 'px monospace';
 
-    for (let i = 0; i < drops.length; i++) {
+    for (let i = 0; i < cols; i++) {
       const ch = letters[Math.floor(Math.random() * letters.length)];
-      ctxL.fillText(ch, i * fontSize, drops[i] * fontSize);
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.965) drops[i] = 0;
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+      // draw 3x to intensify without whitening
+      ctxL.fillText(ch, x, y);
+      ctxL.fillText(ch, x, y);
+      ctxL.fillText(ch, x, y);
+
+      if (y > canvas.height && Math.random() > 0.965) drops[i] = 0;
       drops[i]++;
     }
-    requestAnimationFrame(drawLens);
+
+    // Reset for next frame
+    ctxL.shadowBlur = 0;
+    ctxL.globalCompositeOperation = 'source-over';
+    canvas.__rafId = requestAnimationFrame(drawLens);
   }
   drawLens();
 }
 
-window.addEventListener('load', () => {
-  const l = document.getElementById('lensLeft');
-  const r = document.getElementById('lensRight');
-  if (l && r) {
-    startLensMatrix(l);
-    startLensMatrix(r);
-  }
-});
+(function initHeroGlasses() {
+  const hero = document.querySelector('.hero-image');
+  if (!hero) return;
+  let started = false;
+  hero.addEventListener('click', () => {
+    hero.classList.add('glasses-on');      // reveal the .glasses
+    if (!started) {
+      startLensMatrix(document.getElementById('lensLeft'));
+      startLensMatrix(document.getElementById('lensRight'));
+      started = true;
+    }
+  });
+})();

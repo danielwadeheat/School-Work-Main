@@ -147,100 +147,77 @@ nav a:hover {
   text-align: center;
 }
 
+/* Constrain hero image size */
 .hero-image {
   position: relative;
-  display: inline-block;
-}
-
-/* Glasses container */
-.glasses {
-  position: absolute;
-  left: 50%;
-  top: 54%;                 /* adjust to align over eyes */
-  width: 260px;             /* matches SVG viewBox width */
-  height: 100px;            /* matches SVG viewBox height */
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-/* Lens clip areas (match ellipse rx/ry *2 for width/height) */
-.lens {
-  position: absolute;
-  width: 110px;             /* 2 * rx (55) */
-  height: 50px;             /* 2 * ry (25) */
-  top: 25px;                /* cy - ry => 50 - 25 */
-  overflow: hidden;
-  border-radius: 55px / 25px;
-  background: rgba(0,0,0,0.65);
-  box-shadow: inset 0 0 4px rgba(0,0,0,0.7);
-}
-
-.lens-left { left: 25px; }  /* cx - rx => 80 - 55 */
-.lens-right { left: 125px; }/* 180 - 55 */
-
-.lens canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  mix-blend-mode: screen;
-}
-
-.shades-frame {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-}
-
-/* OPTIONAL: slight glow on glyphs */
-.lens canvas.glow { filter: drop-shadow(0 0 4px #0f0); }
-
-/* SVG frame overlays canvases */
-.shades-frame {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+  width: clamp(220px, 30vw, 340px);  /* responsive, never huge */
+  margin: 0 auto;
 }
 
 .hero-image img {
-  width: 200px;
-  border-radius: 75%;
-  margin-top: 1.5rem;
-  border: black 3px solid;
+  display: block;
+  width: 100%;
+  height: auto;            /* keep aspect ratio */
+  object-fit: cover;
 }
 
-.shades-wrap {
+/* Hide shades by default; show after first click */
+.glasses {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease;
+}
+.hero-image.glasses-on .glasses {
+  opacity: 1;
+  visibility: visible;
+}
+.hero-image { cursor: pointer; }
+
+/* Keep glasses smaller and a bit higher */
+.glasses {
   position: absolute;
   left: 50%;
-  top: 44%;              /* adjust until centered over eyes */
-  width: 120px;          /* adjust */
-  height: 40px;          /* adjust */
-  transform: translate(-50%, -50%);
-  border-radius: 20px;   /* pill shape; tweak for exact curve */
-  overflow: hidden;
+  top: 48.2%;                                  /* move up */
+  width: 260px;                               /* geometry base */
+  height: 100px;
+  transform: translate(-50%, -50%) scale(0.58); /* smaller */
+  transform-origin: center;
   pointer-events: none;
+  z-index: 2;
 }
 
-.hero-image .shades,
-.hero-image #shadesCanvas {
+/* Lens clip areas (match SVG geometry) */
+.lens {
   position: absolute;
-  top: 44%;            /* tweak to align with eyes */
-  left: 50%;  
-  width: 100px;        /* smaller width */
-  height: 40px;        /* smaller height */
-  transform: translate(-50%, -50%);
-  border-radius: 18px; /* keeps the oval look */
-  overflow: hidden;    /* keeps the matrix glare inside */
-  pointer-events: none; /* so it doesn't block clicks */
+  width: 110px;
+  height: 50px;
+  top: 25px;
+  overflow: hidden;
+  border-radius: 55px / 25px;
+  z-index: 1;
 }
 
-.hero-image.active .shades {
-  opacity: 1;
+.lens-left  { left: 25px; }
+.lens-right { left: 125px; }
+
+/* Darker tint inside lenses */
+.lens::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  pointer-events: none;
+  z-index: 2;
 }
 
-.hero-image.active #shadesCanvas {
-  mix-blend-mode: screen;       /* optional effect */
-  opacity: 0.8; /* subtle glow */
-}
+/* Thin frame outline + solid bridge (so nose shows) */
+.shades-frame ellipse { fill: none; stroke: #333; stroke-opacity: .6; stroke-width: 2; }
+.shades-frame rect   { fill: #111; stroke: none; }
+
+/* Disable old, conflicting shades rules */
+.shades-wrap { display: none !important; }
+.hero-image .shades,
+.hero-image #shadesCanvas { display: none !important; }
 
 .hero h2,
 .hero p,

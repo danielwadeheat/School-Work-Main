@@ -44,10 +44,11 @@
             <canvas id="lensRight" width="110" height="50"></canvas>
           </div>
 
-          <!-- Outline only (no fill so canvases show) -->
+          <!-- Outline only so canvases show through -->
           <svg class="shades-frame" viewBox="0 0 260 100" aria-hidden="true">
-            <ellipse cx="80"  cy="50" rx="55" ry="25" fill="none" stroke="black" stroke-width="4"/>
-            <ellipse cx="180" cy="50" rx="55" ry="25" fill="none" stroke="black" stroke-width="4"/>
+            <ellipse cx="80"  cy="50" rx="55" ry="25" fill="none" stroke="black" stroke-width="2"/>
+            <ellipse cx="180" cy="50" rx="55" ry="25" fill="none" stroke="black" stroke-width="2"/>
+            <!-- Solid bridge so the middle is not transparent -->
             <rect x="122" y="46" width="16" height="8" fill="black" />
           </svg>
         </div>

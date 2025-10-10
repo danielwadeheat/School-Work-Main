@@ -150,15 +150,40 @@ nav a:hover {
 /* Constrain hero image size */
 .hero-image {
   position: relative;
-  width: clamp(220px, 30vw, 340px);  /* responsive, never huge */
+  display: block;
+  width: clamp(220px, 30vw, 340px);
   margin: 0 auto;
+  padding: 0;
+  border: none;                 /* no container border */
+  border-radius: 16px;
+  overflow: hidden;             /* clip glasses to rounded corners */
+  line-height: 0;               /* remove inline spacing artifacts */
+}
+
+/* Kill any previous pseudo-border if it exists */
+.hero-image::after {
+  content: none !important;
+}
+
+/* Put the real border on the image so it matches edges exactly */
+.hero-image > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;       /* same rounding as container */
+  box-sizing: border-box;       /* include border in element box */
+  border: 5px solid #000;       /* the visible border */
 }
 
 .hero-image img {
+  /* Fill container naturally so border meets the image on all sides */
+  position: static;                   /* was absolute */
   display: block;
   width: 100%;
-  height: auto;            /* keep aspect ratio */
+  height: auto;                       /* keeps original aspect */
   object-fit: cover;
+  margin: 0;
+  border-radius: inherit;
 }
 
 /* Hide shades by default; show after first click */
@@ -177,10 +202,10 @@ nav a:hover {
 .glasses {
   position: absolute;
   left: 50%;
-  top: 48.2%;                                  /* move up */
-  width: 260px;                               /* geometry base */
+  top: 49.2%;                               /* moved down slightly */
+  width: 260px;
   height: 100px;
-  transform: translate(-50%, -50%) scale(0.58); /* smaller */
+  transform: translate(-50%, -50%) scale(0.58);
   transform-origin: center;
   pointer-events: none;
   z-index: 2;

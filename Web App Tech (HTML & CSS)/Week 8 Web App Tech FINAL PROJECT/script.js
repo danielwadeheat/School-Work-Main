@@ -143,59 +143,80 @@ if (heroImage && shadesCanvas) {
   });
 }
 
-// ======= MINI LENS MATRIX (per-lens) + REVEAL ON CLICK =======
+// ======= MINI LENS MATRIX (per-lens) =======
 function startLensMatrix(canvas) {
   if (!canvas) return;
+
+  // If already running, stop before restarting
+  if (canvas.__rafId) cancelAnimationFrame(canvas.__rafId);
+
   const ctxL = canvas.getContext('2d');
   const fontSize = 12;
   const cols = Math.floor(canvas.width / fontSize);
   const drops = Array.from({ length: cols }, () => 1);
 
   function drawLens() {
-    // Dark trail, but not too heavy (preserves brightness)
+    // Dark trail
     ctxL.globalCompositeOperation = 'source-over';
-    ctxL.globalAlpha = 1;
-    ctxL.fillStyle = 'rgba(0,0,0,0.18)';
+    ctxL.fillStyle = 'rgba(0,0,0,0.12)';
     ctxL.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Bright neon green, screen blend keeps the hue vivid on black
+    // Bright green letters
     ctxL.globalCompositeOperation = 'screen';
-    ctxL.fillStyle = '#00ff7a';
-    ctxL.shadowColor = '#00ff66';
-    ctxL.shadowBlur = 2; // subtle glow; avoid big blur (tints lens)
+    ctxL.filter = 'saturate(1.6) brightness(1.35)';
+    ctxL.fillStyle = '#00ff00';
+    ctxL.shadowColor = '#00ff00';
+    ctxL.shadowBlur = 3;
     ctxL.font = '900 ' + fontSize + 'px monospace';
 
     for (let i = 0; i < cols; i++) {
-      const ch = letters[Math.floor(Math.random() * letters.length)];
+      const ch = letters[(Math.random() * letters.length) | 0];
       const x = i * fontSize;
       const y = drops[i] * fontSize;
-      // draw 3x to intensify without whitening
       ctxL.fillText(ch, x, y);
-      ctxL.fillText(ch, x, y);
-      ctxL.fillText(ch, x, y);
-
+      ctxL.fillText(ch, x, y); // double-pass to intensify
       if (y > canvas.height && Math.random() > 0.965) drops[i] = 0;
       drops[i]++;
     }
 
-    // Reset for next frame
+    // reset
     ctxL.shadowBlur = 0;
+    ctxL.filter = 'none';
     ctxL.globalCompositeOperation = 'source-over';
+
     canvas.__rafId = requestAnimationFrame(drawLens);
   }
   drawLens();
 }
 
+function stopLensMatrix(canvas) {
+  if (!canvas) return;
+  if (canvas.__rafId) {
+    cancelAnimationFrame(canvas.__rafId);
+    canvas.__rafId = null;
+  }
+  const ctxL = canvas.getContext('2d');
+  ctxL.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+// ======= REVEAL/TOGGLE ON CLICK =======
 (function initHeroGlasses() {
   const hero = document.querySelector('.hero-image');
-  if (!hero) return;
-  let started = false;
+  const left = document.getElementById('lensLeft');
+  const right = document.getElementById('lensRight');
+  if (!hero || !left || !right) return;
+
+  let visible = false;
   hero.addEventListener('click', () => {
-    hero.classList.add('glasses-on');      // reveal the .glasses
-    if (!started) {
-      startLensMatrix(document.getElementById('lensLeft'));
-      startLensMatrix(document.getElementById('lensRight'));
-      started = true;
+    visible = !visible;
+    if (visible) {
+      hero.classList.add('glasses-on');
+      startLensMatrix(left);
+      startLensMatrix(right);
+    } else {
+      hero.classList.remove('glasses-on');
+      stopLensMatrix(left);
+      stopLensMatrix(right);
     }
   });
 })();

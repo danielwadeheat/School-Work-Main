@@ -186,12 +186,6 @@ nav a:hover {
   border-radius: inherit;
 }
 
-/* Hide shades by default; show after first click */
-.glasses {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 200ms ease;
-}
 .hero-image.glasses-on .glasses {
   opacity: 1;
   visibility: visible;
@@ -200,15 +194,18 @@ nav a:hover {
 
 /* Keep glasses smaller and a bit higher */
 .glasses {
-  position: absolute;
+  position: absolute;      /* over image */
   left: 50%;
-  top: 49.2%;                               /* moved down slightly */
+  top: 48%;             /* moved up slightly */
   width: 260px;
   height: 100px;
   transform: translate(-50%, -50%) scale(0.58);
-  transform-origin: center;
-  pointer-events: none;
-  z-index: 2;
+  transform-origin: center;  /* scale from center */
+  pointer-events: none;      /* clicks pass through to image */
+  z-index: 2;                /* above image */
+  opacity: 0;                /* start hidden */
+  visibility: hidden;        /* hide when not active */
+  transition: opacity 200ms ease; /* fade in/out */
 }
 
 /* Lens clip areas now match rx/ry: 2*48 by 2*22, positioned at (cx-rx, cy-ry) */

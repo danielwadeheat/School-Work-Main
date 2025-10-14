@@ -136,7 +136,8 @@ nav a:hover {
   background: transparent; /* no black background */
   transition: opacity 0.6s ease; /* Smooth fade-in/out for JS, instead of instantly fading to 0 */
   opacity: 1; /* Fully visible when active, so JS can fade from this to 0 */
-  display: block; /* Ensures canvas fills viewport when active, since default inline could space weird */
+  /* REMOVE this duplicate so the canvas isn't always forced on */
+  /* display: block; */
 }
 
 .hero {
@@ -151,61 +152,55 @@ nav a:hover {
 .hero-image {
   position: relative;
   display: block;
-  width: clamp(220px, 30vw, 340px);
+  width: clamp(165px, 22.5vw, 255px);
+  height: clamp(200px, 28vw, 320px);
   margin: 0 auto;
-  padding: 0;
-  border: none;                 /* no container border */
   border-radius: 16px;
-  overflow: hidden;             /* clip glasses to rounded corners */
-  line-height: 0;               /* remove inline spacing artifacts */
+  overflow: hidden;
+  line-height: 0;
+  cursor: pointer;
+  /* Shadow instead of border */
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.55),
+    0 0 10px rgba(0,0,0,0.65);
 }
 
-/* Kill any previous pseudo-border if it exists */
-.hero-image::after {
-  content: none !important;
-}
-
-/* Put the real border on the image so it matches edges exactly */
-.hero-image > img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: inherit;       /* same rounding as container */
-  box-sizing: border-box;       /* include border in element box */
-  border: 5px solid #000;       /* the visible border */
-}
-
+/* Image fills container; no border, no inset shadow */
 .hero-image img {
-  /* Fill container naturally so border meets the image on all sides */
-  position: static;                   /* was absolute */
-  display: block;
-  width: 100%;
-  height: auto;                       /* keeps original aspect */
-  object-fit: cover;
+  position: absolute;   /* pin to edges so cropping is stable */
+  inset: 0;
+  width: clamp(165px, 22.5vw, 255px);
+  height: clamp(200px, 28vw, 320px);
+  object-fit: cover; /* cover, not contain */
+  object-position: 50% 45%;
   margin: 0;
+  border: 0;
   border-radius: inherit;
+  box-shadow: inset 1px 1px 1px 1px #000;
 }
 
+/* Reveal shades on click */
 .hero-image.glasses-on .glasses {
   opacity: 1;
   visibility: visible;
 }
+
 .hero-image { cursor: pointer; }
 
-/* Keep glasses smaller and a bit higher */
+/* Nudge shades alignment after image change */
 .glasses {
-  position: absolute;      /* over image */
+  position: absolute;
   left: 50%;
-  top: 48%;             /* moved up slightly */
+  top: 52.5%;              /* tiny nudge after img pin; adjust 50.7–51.1% */
   width: 260px;
   height: 100px;
-  transform: translate(-50%, -50%) scale(0.58);
-  transform-origin: center;  /* scale from center */
-  pointer-events: none;      /* clicks pass through to image */
-  z-index: 2;                /* above image */
-  opacity: 0;                /* start hidden */
-  visibility: hidden;        /* hide when not active */
-  transition: opacity 200ms ease; /* fade in/out */
+  transform: translate(-50%, -50%) scale(0.45);
+  transform-origin: center;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease;
 }
 
 /* Lens clip areas now match rx/ry: 2*48 by 2*22, positioned at (cx-rx, cy-ry) */

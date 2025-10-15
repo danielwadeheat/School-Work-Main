@@ -120,8 +120,13 @@ nav a:hover {
   transform: scale(1.1);
   background-color: var(--accent-color);  /* #89b389 */
   color: #1A1A1A;
-  border: black 2px solid;
+  border: black 1px solid;
   z-index: 5;  /* above normal but below ripple */
+}
+
+nav a:active {
+  transform: translate3d(1px, 1px, 1px);
+  box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgba(0,0,0,0.1);
 }
 
 #matrix {  /* matrix code rain on nav button click */
@@ -148,41 +153,24 @@ nav a:hover {
   text-align: center;
 }
 
-/* Constrain hero image size */
+/* Make the figure the positioning context for the shades */
 .hero-image {
   position: relative;
-  display: block;
-  width: clamp(165px, 22.5vw, 255px);
-  height: clamp(200px, 28vw, 320px);
-  margin: 0 auto;
-  border-radius: 16px;
-  overflow: hidden;
-  line-height: 0;
+  display: inline-block;
   cursor: pointer;
-  /* Shadow instead of border */
-  box-shadow:
-    0 8px 20px rgba(0,0,0,0.55),
-    0 0 10px rgba(0,0,0,0.65);
 }
 
-/* Image fills container; no border, no inset shadow */
 .hero-image img {
-  position: absolute;   /* pin to edges so cropping is stable */
-  inset: 0;
+  position: inherit;  /* was absolute */
+  inset: 0;           /* pin to edges so cropping is stable */
   width: clamp(165px, 22.5vw, 255px);
   height: clamp(200px, 28vw, 320px);
   object-fit: cover; /* cover, not contain */
-  object-position: 50% 45%;
-  margin: 0;
-  border: 0;
-  border-radius: inherit;
-  box-shadow: inset 1px 1px 1px 1px #000;
-}
-
-/* Reveal shades on click */
-.hero-image.glasses-on .glasses {
-  opacity: 1;
-  visibility: visible;
+  object-position: 50% 50%;
+  border-radius: 25%;
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.55),
+    0 0 10px rgba(0,0,0,0.65);
 }
 
 .hero-image { cursor: pointer; }
@@ -190,8 +178,8 @@ nav a:hover {
 /* Nudge shades alignment after image change */
 .glasses {
   position: absolute;
-  left: 50%;
-  top: 52.5%;              /* tiny nudge after img pin; adjust 50.7–51.1% */
+  left: 50.5%;
+  top: 48.5%;             
   width: 260px;
   height: 100px;
   transform: translate(-50%, -50%) scale(0.45);
@@ -242,6 +230,12 @@ nav a:hover {
 .shades-wrap { display: none !important; }
 .hero-image .shades,
 .hero-image #shadesCanvas { display: none !important; }
+
+/* Reveal shades on click */
+.hero-image.glasses-on .glasses {
+  opacity: 1;
+  visibility: visible;
+}
 
 .hero h2,
 .hero p,

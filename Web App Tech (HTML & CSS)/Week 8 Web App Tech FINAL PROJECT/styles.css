@@ -16,6 +16,35 @@
   --text-color: #1A1A1A;
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Roboto', sans-serif;
+  --font-h2: 'Bavro', 'Lobster', 'Montserrat', sans-serif;
+  --font-h3: 'Throw My Hands Up', 'Lobster', 'Montserrat', sans-serif;
+}
+
+/* Register local webfonts */
+@font-face {
+  font-family: 'Bavro';
+  src: url('fonts/bavro/bavro-regular-webfont.woff2') format('woff2'),
+       url('fonts/bavro/bavro-regular-webfont.woff') format('woff'),
+       url('fonts/bavro/bavro-regular-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Throw My Hands Up';
+  src: url('fonts/throw_my_hands_up/ThrowMyHandsUpintheAir.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Throw My Hands Up';
+  src: url('fonts/throw_my_hands_up/ThrowMyHandsUpintheAirBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Update body to prevent overflow and fit viewport */
@@ -244,9 +273,22 @@ nav a:active {
 }
 
 .hero h2 {
-  font-family: "Lobster", sans-serif;
-  font-size: 3.5rem;     /* Make font larger */
+  font-family: var(--font-h2);
+  font-size: 3.5rem;
   text-align: center;
+}
+
+/* Make all h2 bold (works with Bavro via synthetic bold) */
+h2 {
+  font-weight: 700;
+  font-synthesis: weight;
+}
+
+/* Make just the name darker/stronger on the Home page */
+.hero h2 .name {
+  color: var(--primary-color);
+  font-weight: 900;
+  -webkit-text-stroke: 0.75px currentColor; /* visual thicken */
 }
 
 .hero p {
@@ -330,6 +372,8 @@ nav a:active {
     text-align: left;
     margin-bottom: 1rem;
     font-family: var(--font-heading);
+    /* Ensure h3s use the new h3 stack */
+    font-family: var(--font-h3);
 }
 
 .project-list {
@@ -655,38 +699,38 @@ footer a {
 }
 
 .about-header-flex h2 {
-  font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
+  font-family: var(--font-h2);
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: inherit;   /* changed from 400 */
   letter-spacing: .1rem;
   text-align: center;
   width: 100%;
-  margin: 2rem 0 0; 
+  margin: 2rem 0 0;
   margin-bottom: 0;
 }
 
 .projects h2 {
-  font-family: "Lobster", sans-serif;
+  font-family: var(--font-h2);
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: inherit;   /* changed from 400 */
   letter-spacing: .1rem;
   text-align: center;
   margin: 2rem 0;
 }
 
 .resume h2 {
-  font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
+  font-family: var(--font-h2);
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: inherit;   /* changed from 400 */
   letter-spacing: .1rem;
   text-align: center;
   margin: 0 0 3.5rem;
 }
 
 .contact h2 {
-  font-family: 'Lobster', 'Montserrat', Arial, sans-serif;
+  font-family: var(--font-h2);
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: inherit;   /* changed from 400 */
   letter-spacing: .1rem;
   text-align: center;
   margin: 1.5rem 0;

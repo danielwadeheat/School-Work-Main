@@ -1,0 +1,84 @@
+/* Tighten space under h3 on the About page */
+section.about h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* Commemoration: base figure/image styles */
+.commemoration figure {
+  /* even spacing around the shadow box */
+  margin: 0.5rem 0.75rem;
+  /* lighter, subtle shadow with a small spread; equal on all sides */
+  box-shadow: 0 2px 10px 2px rgba(0,0,0,0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  background: transparent;
+  /* add inner padding so shadow doesn’t touch image/caption */
+  padding: 6px;
+}
+
+/* image fills the inner box (inside padding) */
+.commemoration figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px; /* slightly smaller than outer radius */
+}
+
+/* caption with subtle separator */
+.commemoration figure figcaption {
+  font-size: 0.9rem;
+  color: #333;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Float sides for text wrap */
+.commemoration .Vincent-and-I-Photo { float: left; }
+.commemoration .Vincent-Teaching-Photo { float: right; }
+.commemoration .Tampa-Devs-Photo { float: left; }
+.commemoration .Grand-Canyon-Photo { float: right; }
+
+/* Sizes: first ≈3×, others ≈2×; keep text wrap friendly */
+.commemoration .Vincent-and-I-Photo {
+  width: 75%;
+  max-width: 980px;
+}
+
+.commemoration .Vincent-Teaching-Photo {
+  width: 60%;
+  max-width: 960px;
+}
+
+.commemoration .Tampa-Devs-Photo {
+  width: 70%;
+  max-width: 1200px;
+}
+
+.commemoration .Grand-Canyon-Photo {
+  width: 70%;
+  max-width: 1200px;
+}
+
+/* Ensure figures don’t default to full width */
+.commemoration figure { width: auto; }
+
+/* Clear floats at the end of the section */
+.commemoration::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive: stack figures on small screens */
+@media (max-width: 768px) {
+  .commemoration figure {
+    float: none;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 1rem 0;
+    box-shadow: 0 1px 6px 1px rgba(0,0,0,0.12);
+    padding: 6px;
+    border-radius: 8px;
+  }
+}

@@ -18,11 +18,12 @@
 <body>
     
     <header>
+        <a class="skip-link" href="#main-content">Skip to main content</a>
         <div class="header-inner">
             <img src="images/DWH_logo.png" alt="Logo with the initials DWH">
-            <nav>
+            <nav aria-label="Primary">
                 <a href="index.html">Home</a>
-                <a href="about-page.html">About</a>
+                <a href="about-page.html" aria-current="page">About</a>
                 <a href="projects-page.html">Projects</a>
                 <a href="resume-page.html">Resume</a>
                 <a href="contact-page.html">Contact</a>
@@ -30,10 +31,10 @@
         </div>
     </header>
 
-    <main>
-        <section class="about">
+    <main id="main-content">
+        <section class="about" aria-labelledby="about-title">
             <div class="about-header-flex">
-                <h2>About Me</h2>
+                <h2 id="about-title">About Me</h2>
                 <!-- 
                 <div class="about-video-space">
                     Insert your video embed or <video> tag here
@@ -55,11 +56,10 @@
                     My journey into web development began in an unexpected yet meaningful way.  I've always been tech-savvy and curious about how things work, though growing up in Oklahoma was a land where tech and web development business professionals were scarce.  Out of a passion to know Jesus, live for a higher purpose, and grow my character, I attended a ministry school called Family Of Faith University.  It was great for instilling these things, and I would not trade my time there for anything, but it did not assist me financially in the least.  Difficulties of income constantly arose through the years, with financial freedom always seeming to evade my grasp.  Reaching middle age made it clearer than ever that I needed to quickly and wisely choose a career I could truly dedicate myself to—one that would break me free from the poverty mindset and cycle, allowing me not only to achieve my dreams but also to help others, as I have always desired.  I never imagined I'd eventually find such passion and potential in coding—especially front-end development. That changed, at the gym, when I met Vincent Tang, a professional web developer, through our shared interests in b-boying and fitness.  We struck up a unique trade: I'd teach him breaking, and he'd teach me coding.  At the time, I didn't even know what coding was, but I was open to learning. 
                 </p> 
 
-            <h3>Commemoration of Vincent Tang</h3> 
-
+            <h3 id="commemoration-heading">Commemoration of Vincent Tang</h3> 
             <h4>[February 18, 1991 - August 28, 2025]</h4>
 
-            <div class="commemoration">
+            <div class="commemoration" role="region" aria-labelledby="commemoration-heading">
 
                 <figure class="Vincent-and-I-Box">
                     <img src="images/Vincent-and-I.jpeg" class="Vincent-and-I-Photo" alt="Vincent and I clowning">
@@ -187,7 +187,7 @@
     </footer>
 
 <!-- Matrix canvas JS must come above JS file link -->
-<canvas id="matrix"></canvas>
+<canvas id="matrix" aria-hidden="true"></canvas>
 
 <!-- Your script comes last -->
 <script src="script.js"></script>

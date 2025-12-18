@@ -16,48 +16,47 @@
 </head>
 <body>
 
-    <header>
-        <div class="header-inner">
-            <img src="images/DWH_logo.png" alt="Logo with the initials DWH">
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="about-page.html">About</a>
-                <a href="projects-page.html">Projects</a>
-                <a href="resume-page.html">Resume</a>
-                <a href="contact-page.html">Contact</a>
-            </nav>
-        </div>
-    </header>
-    
-    <main>
-        <section class="projects">
-            <h2>My Projects</h2>
-            <div class="project-list">
-            <section id="project1">
-                <h3>Project One</h3>
-                <img src="images/project1-full.jpg" alt="Full view of Project One">
-                <p>Detailed explanation, features, and tools used in Project One.</p>
-            </section>
+  <header>
+    <div class="header-inner">
+      <a class="skip-link" href="#main-content">Skip to main content</a>
+      <img src="images/DWH_logo.png" alt="Logo with the initials DWH">
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about-page.html">About</a>
+        <a href="projects-page.html" aria-current="page">Projects</a>
+        <a href="resume-page.html">Resume</a>
+        <a href="contact-page.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-            <section id="project2">
-                <h3>Project Two</h3>
-                <img src="images/project2-full.jpg" alt="Full view of Project Two">
-                <p>Description of the problem it solves, your approach, and technologies used.</p>
-            </section>
+  <main id="main-content">
+    <section class="projects" aria-labelledby="projects-title" role="region">
+      <h2 id="projects-title">Projects</h2>
+      <div class="project-list">
+      <section id="project1">
+          <h3>Project One</h3>
+          <img src="images/project1-full.jpg" alt="Full view of Project One">
+          <p>Detailed explanation, features, and tools used in Project One.</p>
+      </section>
 
-            </div>
-        </section>
-    </main>
-    <footer>
-        <small>&copy 2025 Daniel Wade Heatherly. All rights reserved.</small>
-        <small><a href="contact-page.html">Contact</a></small>
-    </footer>
+      <section id="project2">
+          <h3>Project Two</h3>
+          <img src="images/project2-full.jpg" alt="Full view of Project Two">
+          <p>Description of the problem it solves, your approach, and technologies used.</p>
+      </section>
 
-<!-- Matrix canvas JS must come above JS file link -->
-<canvas id="matrix"></canvas>
+      </div>
+    </section>
+  </main>
 
-<!-- Your script comes last -->
-<script src="script.js"></script>
+  <footer>
+    <small>&copy 2025 Daniel Wade Heatherly. All rights reserved.</small>
+    <small><a href="contact-page.html">Contact</a></small>
+  </footer>
+
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <script src="script.js"></script>
 
 </body>
 </html>

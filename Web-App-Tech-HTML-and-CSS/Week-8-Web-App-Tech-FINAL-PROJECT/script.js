@@ -220,3 +220,19 @@ function stopLensMatrix(canvas) {
     }
   });
 })();
+
+// Contact form: validate, then redirect to confirmation
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('section.contact form');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    // Allow native HTML5 validation UI to run
+    if (!form.checkValidity()) return;
+
+    e.preventDefault();
+    // Simulate successful send (replace with real submit later if needed)
+    sessionStorage.setItem('msgSent', '1');
+    window.location.href = 'confirmation-page.html?sent=1';
+  });
+});

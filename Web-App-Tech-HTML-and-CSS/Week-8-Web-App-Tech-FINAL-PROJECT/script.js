@@ -221,17 +221,15 @@ function stopLensMatrix(canvas) {
   });
 })();
 
-// Contact form: validate, then redirect to confirmation
+// Contact form: validate, then redirect to confirmation (no confetti here)
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('section.contact form');
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
-    // Allow native HTML5 validation UI to run
-    if (!form.checkValidity()) return;
-
+    if (!form.checkValidity()) return; // let native validation run
     e.preventDefault();
-    // Simulate successful send (replace with real submit later if needed)
+
     sessionStorage.setItem('msgSent', '1');
     window.location.href = 'confirmation-page.html?sent=1';
   });
@@ -371,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ======= Confirmation page: do NOT replay the crack effect =======
+// ======= Confirmation page: replay confetti on load (if navigated from Contact)
 document.addEventListener('DOMContentLoaded', () => {
   const confirmSection = document.querySelector('section.confirmation');
   if (!confirmSection) return;
@@ -381,8 +379,5 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!allowed) { location.replace('contact-page.html'); return; }
   sessionStorage.removeItem('msgSent');
 
-  const fx = qs.get('fx') || 'confetti';
-  // Cancel crack on the confirmation page; fallback to confetti
-  const replay = fx === 'crack' ? 'confetti' : fx;
-  setTimeout(() => playEffect(replay), 200);
+  setTimeout(() => loadConfettiLib(burstConfetti), 200);
 });

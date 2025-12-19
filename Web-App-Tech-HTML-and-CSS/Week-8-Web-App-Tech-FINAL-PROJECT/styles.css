@@ -807,3 +807,36 @@ footer a {
 .confirm-btn.secondary {
   opacity: 0.9;
 }
+
+/* Make the header logo obviously clickable and accessible */
+header .header-inner img[role="button"] {
+  cursor: pointer;
+  outline: none;
+}
+header .header-inner img[role="button"]:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* FX overlays (ensure above canvas/ui) */
+.fx-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+/* Crack effect (SVG-based, no image) */
+.fx-crack { opacity: 1; transition: opacity 600ms ease; }
+.fx-crack.fade { opacity: 0; }
+.fx-crack .crack-impact {
+  fill: rgba(255,255,255,0.12);
+  stroke: rgba(255,255,255,0.45);
+  stroke-width: var(--crack-stroke, 1.5); /* scaled thickness */
+}
+.fx-crack .crack-ray {
+  fill: none;
+  stroke: rgba(255,255,255,0.9);
+  stroke-width: var(--crack-stroke, 1.5); /* scaled thickness */
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.8));
+}

@@ -236,3 +236,153 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'confirmation-page.html?sent=1';
   });
 });
+
+// ======= FX overlays (confetti/flash/crack) =======
+// If you already added these helpers earlier, keep them; otherwise this adds them.
+function loadConfettiLib(cb) {
+  if (window.confetti) return cb();
+  const s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js';
+  s.async = true;
+  s.onload = cb;
+  document.head.appendChild(s);
+}
+
+function burstConfetti() {
+  const duration = 900;
+  const end = Date.now() + duration;
+  const colors = ['#89b389', '#004F4F', '#ffffff', '#a0d0a0'];
+  (function frame() {
+    window.confetti && window.confetti({
+      particleCount: 60,
+      spread: 65,
+      origin: { y: 0.3 },
+      colors
+    });
+    if (Date.now() < end) requestAnimationFrame(frame);
+  })();
+}
+
+// Remove (or ignore) the PNG preload; not needed for SVG version
+// (function preloadCrack() { ... })();
+
+// Replace crackOverlay to accept center and scale (default 15%)
+function crackOverlay(opts = {}) {
+  const { x, y, scale = 0.15 } = opts;
+
+  const el = document.createElement('div');
+  el.className = 'fx-overlay fx-crack';
+  el.setAttribute('aria-hidden', 'true');
+
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  const cx = typeof x === 'number' ? x : w * 0.5;
+  const cy = typeof y === 'number' ? y : h * 0.5;
+
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(svgNS, 'svg');
+  svg.setAttribute('width', '100%');
+  svg.setAttribute('height', '100%');
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+
+  // Adjust stroke thickness with scale
+  el.style.setProperty('--crack-stroke', String(Math.max(0.5, 1.5 * scale)));
+
+  // center impact
+  const impact = document.createElementNS(svgNS, 'circle');
+  impact.setAttribute('cx', cx);
+  impact.setAttribute('cy', cy);
+  impact.setAttribute('r', Math.min(w, h) * 0.02 * scale);
+  impact.setAttribute('class', 'crack-impact');
+  svg.appendChild(impact);
+
+  // jagged rays
+  function addRay(angleDeg, length, segments = 8) {
+    const angle = (angleDeg * Math.PI) / 180;
+    let x1 = cx, y1 = cy;
+    const pts = [`${x1},${y1}`];
+    for (let i = 1; i <= segments; i++) {
+      const step = (length / segments) * (0.8 + Math.random() * 0.6);
+      const jitter = (Math.random() - 0.5) * 0.25;
+      const a = angle + jitter;
+      x1 += Math.cos(a) * step;
+      y1 += Math.sin(a) * step;
+      pts.push(`${x1.toFixed(1)},${y1.toFixed(1)}`);
+    }
+    const poly = document.createElementNS(svgNS, 'polyline');
+    poly.setAttribute('points', pts.join(' '));
+    poly.setAttribute('class', 'crack-ray');
+    svg.appendChild(poly);
+  }
+
+  const baseLen = Math.min(w, h);
+  const rays = 14;
+  for (let i = 0; i < rays; i++) {
+    const base = (360 / rays) * i + (Math.random() * 14 - 7);
+    const len = baseLen * (0.35 + Math.random() * 0.25) * scale;
+    addRay(base, len, 7 + (Math.random() * 4 | 0));
+  }
+
+  el.appendChild(svg);
+  document.body.appendChild(el);
+
+  setTimeout(() => el.classList.add('fade'), 1200);
+  setTimeout(() => el.remove(), 1800);
+}
+
+// Hook the DWH logo so the crack appears centered on the logo
+(function hookLogoCrack() {
+  const logo = document.getElementById('site-logo') || document.querySelector('header img');
+  if (!logo || logo.dataset.crackHooked) return;
+  logo.dataset.crackHooked = '1';
+  logo.setAttribute('role', 'button');
+  logo.setAttribute('tabindex', '0');
+  if (!logo.title) logo.title = 'Click for a fun effect';
+
+  const trigger = () => {
+    const rect = logo.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;     // viewport (fixed) coords
+    const y = rect.top + rect.height / 2;
+    crackOverlay({ x, y, scale: 0.15 });      // 15% size, centered on logo
+  };
+
+  logo.addEventListener('click', trigger);
+  logo.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger(); }
+  });
+})();
+ 
+// ======= Make the DWH logo trigger the crack effect =======
+document.addEventListener('DOMContentLoaded', () => {
+  const logo = document.querySelector('header .header-inner img[alt*="DWH"]') || 
+               document.querySelector('header .header-inner img');
+
+  if (logo && !logo.dataset.crackHooked) {
+    logo.dataset.crackHooked = '1';
+    logo.setAttribute('role', 'button');
+    logo.setAttribute('tabindex', '0');
+    if (!logo.title) logo.title = 'Click for a fun effect';
+
+    const trigger = () => crackOverlay();
+    logo.addEventListener('click', trigger);
+    logo.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger(); }
+    });
+  }
+});
+
+// ======= Confirmation page: do NOT replay the crack effect =======
+document.addEventListener('DOMContentLoaded', () => {
+  const confirmSection = document.querySelector('section.confirmation');
+  if (!confirmSection) return;
+
+  const qs = new URLSearchParams(location.search);
+  const allowed = qs.get('sent') === '1' || sessionStorage.getItem('msgSent') === '1';
+  if (!allowed) { location.replace('contact-page.html'); return; }
+  sessionStorage.removeItem('msgSent');
+
+  const fx = qs.get('fx') || 'confetti';
+  // Cancel crack on the confirmation page; fallback to confetti
+  const replay = fx === 'crack' ? 'confetti' : fx;
+  setTimeout(() => playEffect(replay), 200);
+});

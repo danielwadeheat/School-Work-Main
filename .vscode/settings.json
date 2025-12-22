@@ -1,11 +1,4 @@
 {
-    "liveServer.settings.port": 5501,
-    "git.autoRepositoryDetection": true,
-    "git.openRepositoryInParentFolders": "always",
-
-    // Optional: scan subfolders relative to this workspace
-    "git.scanRepositories": [
-        ".",            // the workspace root
-        "Assignments/*" // example subfolder (adjust as needed)
-    ]
+  "liveServer.settings.port": 5501,
+  "editor.formatOnSave": true
 }

@@ -2,9 +2,9 @@
 
 This assignment demonstrates basic JavaScript functions:
 
-- toTitleCase
-- sum
-- avg
+- toTitleCase(str); 
+- sum(a,b);
+- avg(arr);
 
 Open index.html with Live Server and view the console output.
 

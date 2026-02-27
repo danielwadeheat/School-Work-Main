@@ -1,0 +1,13 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+}
+
+#status {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+ul {
+  padding-left: 1.25rem;
+}

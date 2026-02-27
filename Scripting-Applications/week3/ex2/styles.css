@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+}
+
+input {
+  padding: 0.5rem;
+  width: 280px;
+  margin-bottom: 0.75rem;
+}
+
+#status {
+  font-weight: 600;
+  min-height: 1.2rem;
+}
+
+ul {
+  padding-left: 1.25rem;
+}

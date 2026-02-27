@@ -1,0 +1,17 @@
+body { font-family: Arial, sans-serif; margin: 2rem; }
+form { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+input[type="text"] { padding: 0.5rem; width: 260px; }
+button { padding: 0.5rem 0.8rem; cursor: pointer; }
+ul { list-style: none; padding: 0; max-width: 420px; }
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+.task-text { cursor: pointer; }
+.done .task-text { text-decoration: line-through; color: #777; }
+.delete-btn { background: #eee; border: 1px solid #bbb; border-radius: 4px; }

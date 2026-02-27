@@ -11,13 +11,16 @@ Open `index.html` with Live Server and view the Console output.
 ## Console Output (Current)
 
 ### Example 1
+
 - Input: `"Daniel"`
 - Output: `Hello, Daniel!`
 
 ### Example 2
+
 - Input: `"  Ava  "`
 - Output: `Hello, Ava!`
 
 ### Example 3
+
 - Input: `""` (empty) or Cancel
 - Output: `Hello, Student!`

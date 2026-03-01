@@ -1,16 +1,22 @@
-# React + Vite
+# Week 5 – React Exercises (Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This week uses Vite + React with components, props, state, events, lists, and controlled inputs.
 
-Currently, two official plugins are available:
+## Exercise 1: Task Board
+- Components: `TaskForm`, `TaskList`, `TaskItem`
+- State-based tasks array
+- Add, edit, complete tasks
+- Filter: all / active / done
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Exercise 2: Controlled Inputs & Greeting
+- Input bound to state
+- Submit disabled if input is empty
+- Shows: `Hello, <name>!`
 
-## React Compiler
+## Exercise 3: List & Keys
+- Maps product array to `<li>`
+- Uses stable `key={id}`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Run:
+- `npm install`
+- `npm run dev`

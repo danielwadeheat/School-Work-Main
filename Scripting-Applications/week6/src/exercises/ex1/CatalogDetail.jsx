@@ -5,8 +5,6 @@ import "./styles.css";
 
 export default function CatalogDetail() {
   const { data, loading, error } = useFetchJSON("/items.json");
-  const items = data ?? [];
-
   const location = useLocation();
   const headingRef = useRef(null);
 

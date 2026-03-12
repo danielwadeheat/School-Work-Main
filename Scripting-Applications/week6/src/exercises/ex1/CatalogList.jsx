@@ -5,13 +5,10 @@ import "./styles.css";
 
 export default function CatalogList() {
   const { data, loading, error } = useFetchJSON("/items.json");
-  const items = data ?? [];
-
   const location = useLocation();
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
   const q = params.get("q") ?? "";
-
   const [query, setQuery] = useState(q);
 
   useEffect(() => {

@@ -1,41 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 
-const useFetchJSON = (url) => {
+export function useFetchJSON(url) {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(Boolean(url));
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!url) return;
+
     const controller = new AbortController();
-    const signal = controller.signal;
+    setLoading(true);
+    setError(null);
 
-    const fetchData = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const response = await fetch(url, { signal });
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (err) {
-        if (err.name !== 'AbortError') {
-          setError(err.message);
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
+    fetch(url, { signal: controller.signal })
+      .then((res) => {
+        if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+        return res.json();
+      })
+      .then((json) => setData(json))
+      .catch((err) => {
+        if (err.name !== "AbortError") setError(err);
+      })
+      .finally(() => setLoading(false));
 
-    fetchData();
-
-    return () => {
-      controller.abort();
-    };
+    return () => controller.abort();
   }, [url]);
 
   return { data, loading, error };
-};
-
-export default useFetchJSON;
+}

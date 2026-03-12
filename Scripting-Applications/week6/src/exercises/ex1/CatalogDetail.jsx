@@ -4,7 +4,6 @@ import { useFetchJSON } from "../../hooks/useFetchJSON";
 import "./styles.css";
 
 export default function CatalogDetail() {
-  const { id } = useParams();
   const { data, loading, error } = useFetchJSON("/items.json");
   const items = data ?? [];
 
@@ -15,10 +14,12 @@ export default function CatalogDetail() {
     headingRef.current?.focus();
   }, [location.pathname]);
 
-  const item = useMemo(
-    () => items.find((i) => String(i.id) === String(id)),
-    [items, id]
-  );
+  const { id } = useParams();
+
+  const item = useMemo(() => {
+    const list = data ?? [];
+    return list.find((i) => String(i.id) === String(id));
+  }, [data, id]);
 
   return (
     <main className="ex1">

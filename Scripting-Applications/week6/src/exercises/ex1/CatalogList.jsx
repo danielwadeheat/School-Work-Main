@@ -24,14 +24,15 @@ export default function CatalogList() {
   }, [location.pathname]);
 
   const filtered = useMemo(() => {
+    const list = data ?? [];
     const term = query.trim().toLowerCase();
-    if (!term) return items;
-    return items.filter(
+    if (!term) return list;
+    return list.filter(
       (item) =>
         item.name.toLowerCase().includes(term) ||
         item.category.toLowerCase().includes(term)
     );
-  }, [items, query]);
+  }, [data, query]);
 
   const updateQuery = (value) => {
     setQuery(value);

@@ -1,0 +1,27 @@
+{
+  "name": "week6-react-exercises",
+  "version": "1.0.0",
+  "description": "A React project for Week 6 exercises including a Catalog Browser and useFetchJSON hook.",
+  "main": "src/index.jsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts": "5.0.0",
+    "react-router-dom": "^6.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "react",
+    "javascript",
+    "web development",
+    "homework"
+  ],
+  "author": "Daniel Wade Heat",
+  "license": "MIT"
+}

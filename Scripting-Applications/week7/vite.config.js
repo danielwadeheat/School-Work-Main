@@ -7,9 +7,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        ex1: resolve(__dirname, 'ex1/index.html'),
-        ex2: resolve(__dirname, 'ex2/index.html'),
-        ex3: resolve(__dirname, 'ex3/index.html')
+        ex1: resolve(__dirname, 'src/ex1/index.html'),
+        ex2: resolve(__dirname, 'src/ex2/index.html'),
+        ex3: resolve(__dirname, 'src/ex3/index.html')
       }
     }
   }

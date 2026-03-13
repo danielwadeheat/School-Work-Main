@@ -1,14 +1,16 @@
-# Week 8 — Exercise 3: Build & Preview
+# Week 8 — Exercise 3 (React + Vite)
 
-Goal: Create a production build and run the preview server.
+This exercise uses React + Vite. Run the dev server, then open the exercise page:
 
-Run locally:
+- Dev server: `npm run dev`
+- URL: `http://localhost:5173/src/ex3/index.html`
 
-```bash
-cd Scripting-Applications/week8
-npm install
-npm run build
-npm run preview
-```
+## Assignment Requirements
+- Make a production build
+- Preview the build and verify routes/forms still work
 
-Open the preview URL shown in the terminal: `http://localhost:5173/#/ex3`
+## What This Does
+- Provides a short checklist for running:
+  - `npm run build`
+  - `npm run preview`
+- Confirms that features still work after build

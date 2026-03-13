@@ -1,0 +1,72 @@
+.ex1__actions {
+  margin: 1rem 0;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.ex1__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ex1__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  background: #fff;
+  padding: 0.75rem 1rem;
+}
+
+.ex1__form {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 420px;
+}
+
+.ex1__form input,
+.ex1__form select {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #c7c7c7;
+  border-radius: 8px;
+}
+
+.btn,
+button {
+  background: #2457ff;
+  color: #fff;
+  border: 0;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.status {
+  margin: 0.75rem 0;
+}
+
+.success {
+  color: #0b6b2f;
+}
+
+.error {
+  color: #b00020;
+  margin: 0 0 0.5rem;
+}
+
+.muted {
+  color: #666;
+}

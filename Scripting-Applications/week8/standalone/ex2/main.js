@@ -1,0 +1,1 @@
+// Standalone demo uses native lazy-loading on images.

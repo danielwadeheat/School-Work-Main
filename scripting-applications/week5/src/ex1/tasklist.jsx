@@ -1,4 +1,4 @@
-import TaskItem from "./TaskItem";
+import TaskItem from "./taskitem";
 
 export default function TaskList({ tasks, onToggle, onEdit }) {
   if (tasks.length === 0) return <p>No tasks in this filter.</p>;

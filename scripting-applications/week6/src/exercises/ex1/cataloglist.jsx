@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useFetchJSON } from "../../hooks/useFetchJSON";
+import { useFetchJSON } from "../../hooks/usefetchjson";
 import "./styles.css";
 
 export default function CatalogList() {

@@ -1,10 +1,10 @@
 import { HashRouter, NavLink, Route, Routes } from "react-router-dom";
 import { lazy, Suspense, useState } from "react";
-import Ex1List from "./ex1/Ex1List.jsx";
-import Ex1Form from "./ex1/Ex1Form.jsx";
-import Ex2Speed from "./ex2/Ex2Speed.jsx";
+import Ex1List from "./ex1/ex1list.jsx";
+import Ex1Form from "./ex1/ex1form.jsx";
+import Ex2Speed from "./ex2/ex2speed.jsx";
 
-const Ex3Build = lazy(() => import("./ex3/Ex3Build.jsx"));
+const Ex3Build = lazy(() => import("./ex3/ex3build.jsx"));
 
 const initialItems = [
   { id: 1, name: "Canvas Tote", price: 19.99, category: "Accessories" },

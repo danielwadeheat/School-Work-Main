@@ -3,10 +3,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
-import './App.css'
-import CatalogList from "./exercises/ex1/CatalogList";
-import CatalogDetail from "./exercises/ex1/CatalogDetail";
-import UseFetchJSONDemo from "./exercises/ex2/UseFetchJSONDemo";
+import './app.css'
+import CatalogList from "./exercises/ex1/cataloglist";
+import CatalogDetail from "./exercises/ex1/catalogdetail";
+import UseFetchJSONDemo from "./exercises/ex2/usefetchjsondemo";
 
 function Home() {
   return (

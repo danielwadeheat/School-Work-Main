@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
-import PageTitle from './components/PageTitle'
-import SearchBox from './components/SearchBox'
-import ItemRow from './components/ItemRow'
+import PageTitle from './components/pagetitle'
+import SearchBox from './components/searchbox'
+import ItemRow from './components/itemrow'
 
 const sampleItems = [
   { id: 1, name: 'Apple' },

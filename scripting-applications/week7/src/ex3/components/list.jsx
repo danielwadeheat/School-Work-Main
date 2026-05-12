@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ItemRow from './ItemRow'
+import ItemRow from './itemrow'
 
 export default function List({ loader }) {
   const [items, setItems] = useState(null)

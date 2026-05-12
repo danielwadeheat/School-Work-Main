@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import ItemRow from '../components/ItemRow'
+import ItemRow from '../components/itemrow'
 
 test('clicking ItemRow calls handler', () => {
   const item = { id: 1, name: 'X' }

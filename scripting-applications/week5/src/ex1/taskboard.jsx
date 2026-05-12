@@ -1,6 +1,6 @@
 import { useState } from "react";
-import TaskForm from "./TaskForm";
-import TaskList from "./TaskList";
+import TaskForm from "./taskform";
+import TaskList from "./tasklist";
 
 export default function TaskBoard() {
   const [tasks, setTasks] = useState([

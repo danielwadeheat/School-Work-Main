@@ -1,7 +1,7 @@
 import React from 'react'
-import { ThemeProvider } from './contexts/ThemeContext'
-import PageTitle from './components/PageTitle'
-import ThemeToggle from './components/ThemeToggle'
+import { ThemeProvider } from './contexts/themecontext'
+import PageTitle from './components/pagetitle'
+import ThemeToggle from './components/themetoggle'
 import './styles.css'
 
 function Inner() {

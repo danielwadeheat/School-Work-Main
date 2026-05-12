@@ -33,7 +33,7 @@
 
 @font-face {
   font-family: 'Throw My Hands Up';
-  src: url('fonts/throw_my_hands_up/ThrowMyHandsUpintheAir.ttf') format('truetype');
+  src: url('fonts/throw_my_hands_up/throwmyhandsupintheair.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -41,7 +41,7 @@
 
 @font-face {
   font-family: 'Throw My Hands Up';
-  src: url('fonts/throw_my_hands_up/ThrowMyHandsUpintheAirBold.ttf') format('truetype');
+  src: url('fonts/throw_my_hands_up/throwmyhandsupintheairbold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react'
-import List from '../components/List'
+import List from '../components/list'
 
 test('List shows Loading then items', async () => {
   const loader = () => Promise.resolve([{ id: 1, name: 'A' }])

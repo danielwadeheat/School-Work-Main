@@ -1,6 +1,6 @@
-import TaskBoard from "./ex1/TaskBoard";
-import GreetingForm from "./ex2/GreetingForm";
-import ProductList from "./ex3/ProductList";
+import TaskBoard from "./ex1/taskboard";
+import GreetingForm from "./ex2/greetingform";
+import ProductList from "./ex3/productlist";
 
 export default function App() {
   return (
